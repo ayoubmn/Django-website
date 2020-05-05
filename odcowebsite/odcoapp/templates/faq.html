@@ -1,0 +1,407 @@
+{% load static %}
+
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+		<meta name="apple-mobile-web-app-title" content="CodePen">
+		<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+		<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+		<title>ODCO-Maroc</title>
+		<link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1" >
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+		<style>
+		* {
+		  box-sizing: border-box;
+		  margin: 0px;
+		  padding: 0px;
+		  font-family: Segoe UI Light;
+		}
+		.navbar {
+			transition: all 0.4s;
+		}
+
+		.navbar .nav-link {
+			color: #000;
+		}
+
+		.navbar .nav-link:hover,
+		.navbar .nav-link:focus {
+			color: #000;
+			text-decoration: none;
+		}
+
+		.navbar .navbar-brand {
+			color: #000;
+		}
+		#resize{
+			width:20px;
+			height:20px;
+		}
+		.mymenu{
+			display:none;
+		}
+		/* Show the dropdown menu on hover */
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		.form-inline{
+			display: flex;
+			flex-direction: row;
+		}
+
+		/* Change navbar styling on small viewports */
+@media (max-width: 1100.98px) {
+			.navbar {
+				background: #fff;
+			}
+
+
+			.navbar .navbar-brand, .navbar .nav-link {
+				color: #555;
+			}
+			.navbar .nav-link:hover,
+			.navbar .nav-link:focus {
+			color: #ff9eed;
+			text-decoration: none;
+
+			}
+}
+
+		html {
+		  overflow-x: hidden;
+		}
+
+		footer {
+		  background-color: #2c3e50;
+		  color: white;
+		  height: 100vh;
+		  padding: 80px;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: flex-start;
+		}
+
+		footer nav {
+		  font-family: Segoe UI Light;
+		  font-size: 1.5rem;
+		  display: flex;
+		  justify-content: space-between;
+		}
+		header nav ul,
+		footer nav ul {
+		  list-style: none;
+		  display: flex;
+		}
+
+		footer nav ul li {
+		  margin: 0px 10px 0px 10px;
+		}
+
+		footer nav ul li a {
+		  text-decoration: none;
+		  color: inherit;
+		  padding: 10px 20px 10px 20px;
+		  border-radius: 10px;
+		  transition: all 0.5s ease;
+		}
+		header nav ul li a:hover,
+		footer nav ul li a:hover {
+		  background-color: #fff3;
+		}
+		footer .header-contents {
+		  display: flex;
+		  justify-content: space-around;
+		  align-items: center;
+		}
+		footer .header-contents .welcome {
+		  font-family: Segoe UI Light;
+		  font-size: 10rem;
+		  margin-top: 50px;
+		}
+		footer .header-contents .description {
+		  font-family: Segoe UI Light;
+		  font-size: 2rem;
+		  max-width: 800px;
+		}
+		footer .header-contents button {
+		  align-self: flex-end;
+		}
+
+
+@media (max-width: 800px) {
+
+
+	.welcome-text{
+		font-size: 30px !important;
+
+	}
+
+
+}
+ /******************normal****************************/
+
+
+		footer {
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: flex-start;
+		  align-items: center;
+		  height: 65vh;
+		}
+		footer .social-media {
+		  font-size: 2rem;
+		  margin: 25px 50px 10px 50px;
+		  width: 250px;
+		  display: flex;
+		  justify-content: space-around;
+		}
+		footer .footer-links {
+		  display: grid;
+		  grid-template-columns: 300px 300px;
+		  grid-row-gap: 50px;
+		  align-items: center;
+		  justify-content: center;
+		  width: 100vw;
+		}
+		footer .footer-links a {
+		  text-align: center;
+		  color: white;
+		  text-decoration: none;
+		  font-size: 1.5rem;
+		}
+
+		hr {
+		  height: 1px;
+		  width: 100px;
+		  margin: 20px;
+		}
+
+		.welcome-text{
+			text-align: center;
+			z-index: 2;
+			color: white;
+			font-size: 50pt;
+			font-family: Segoe UI ;
+			position: absolute;
+			top:25%;
+
+			left:45%;
+			font-weight: bold;
+
+		}
+		.flex-image{
+			display: flex;
+		}
+		button {
+		  background-color: white;
+		  padding: 15px 20px 15px 20px;
+		  height: fit-content;
+		  border: none;
+		  border-radius: 10px;
+		}
+
+
+
+		</style>
+			<script>
+			  window.console = window.console || function(t) {};
+			</script>
+
+
+	</head>
+
+	<body translate="no">
+
+					<header style="height:auto;">
+						<nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
+							<div class="container-fluid">
+								<a href="/" ><img src="{% static 'odcoapp/media/logo.png' %}" ></a>
+								<button type="button"  class="navbar-toggle d-lg-none pg-light" data-toggle="collapse" data-target="#navbarSupportedContent" area-hidden="true">
+									<img  src="{% static 'odcoapp/media/menu.png' %}" >
+								</button>
+
+								<div id="navbarSupportedContent" class="collapse navbar-collapse">
+									<ul class="navbar-nav ml-auto">
+									    <li class="nav-item">
+									      <form class="form-inline" style="margin-right: 100px;">
+									        <input id="search-input" class="form-control item" type="text" placeholder="Search">
+									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
+									      </form>
+									    </li>
+										<li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Acceuil <span class="sr-only">(current)</span></a></li>
+										<li class="nav-item">
+											<a href="acctualite" class="nav-link text-uppercase font-weight-bold">Actualite</a>
+										</li>
+
+										<li class="nav-item">
+											<div class="dropdown">
+											  <button class="btn  dropdown-toggle nav-link text-uppercase font-weight-bold" type="button" data-toggle="dropdown">
+											    Conseil
+											  </button>
+											  <div class="dropdown-menu">
+											    <a class="dropdown-item" href="conseileco">Conseils economique</a>
+											    <a class="dropdown-item" href="conseiljuri">Conseils juridique</a>
+											  </div>
+											</div>
+										</li>
+										<li class="nav-item"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a></li>
+
+										<li class="nav-item"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+										<li class="nav-item dropdown">
+				                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-fr"> </span> Français</a>
+				                            <div class="dropdown-menu" aria-labelledby="dropdown09">
+				                                <a class="dropdown-item" href="ar"><span class="flag-icon flag-icon-ae"> </span>  Arabe</a>
+				                            </div>
+				                        </li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</header>
+
+					<div class="sticky-btn">
+						<style type="text/css">
+							.sticky-btn {
+					  		-webkit-filter: drop-shadow(5px 5px 5px #222);
+					  		filter: drop-shadow(5px 5px 5px #222);
+					  		position: fixed;
+							bottom: 50px;
+							right: 30px;
+							z-index: 100;
+							}
+							.sticky-image{
+							border-radius: 50% !important;
+							}
+
+
+						</style>
+						<button style="padding: 0; margin: 0;" href="#" data-toggle="tooltip" data-placement="left" title="vous aves une question">
+							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
+						</button>
+
+					</div>
+
+					<div class="flex-image">
+						<div class="item" style="flex-basis: 100%;">
+							<img class="first-image" src="{% static 'odcoapp/media/faq.jpg' %}" style="width: 100%">
+							<p class="welcome-text">F.A.Q</p>
+						</div>
+					</div>
+
+
+					<div class="accordion container" id="accordionExample" style="margin-top:  20px;">
+					  <div class="card z-depth-0 bordered">
+					    <div class="card-header" id="headingOne">
+					      <h5 class="mb-0 text-right">
+					        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+					          aria-expanded="true" aria-controls="collapseOne">
+ما هي النصوص القانونية  المنظمة للقطاع التعاوني بالمغرب			        </button>
+					      </h5>
+					    </div>
+					    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+					      data-parent="#accordionExample">
+					      <div class="card-body text-right">
+تخضع التعاونيات للقانون رقم 112.12 المتعلق بالتعاونيات كما تم تغييره وكذا لأحكام المرسوم رقم 2.15.617 صادر في 24 مارس 2016 بتحديد قواعد تنظيم وتسيير سجل التعاونيات ولقرار وزير العدل والحريات رقم 1369.16 الصادر في 9 ماي 2016 بتحديد شكل ومضمون السجل المحلي للتعاونيات ونماذج استمارات طلب التسجيل والتقييد المعدل والتشطيب وكذا نموذج من شهادة ومستخرج من السجل المذكور
+					      </div>
+					    </div>
+					  </div>
+					  <div class="card z-depth-0 bordered">
+					    <div class="card-header" id="headingTwo">
+					      <h5 class="mb-0 text-right">
+					        <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
+					          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+ما هو تعريف التعاونية					        </button>
+					      </h5>
+					    </div>
+					    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+					      <div class="card-body text-right">
+مقاولة مستقلة محدثة بين أشخاص ذاتيين و/أو اعتباريين  أو هما معا اتفقوا بشكل إرادي على تسويق منتوجاتهم أو خدماتهم بشكل جماعي أو الحصول على خدمات أو شغل عبر تسخير إمكانياتهم المادية و التقنية، ويتم تسييرها وفق القانون و المبادئ التعاونية.
+					      </div>
+					    </div>
+					  </div>
+					  <div class="card z-depth-0 bordered">
+					    <div class="card-header" id="headingThree">
+					      <h5 class="mb-0 text-right">
+					        <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
+					          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+ما هي المبادئ التعاونية					        </button>
+					      </h5>
+					    </div>
+					    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+					      <div class="card-body text-right">
+المبادئ التعاونية هي مبادئ عالمية يبلغ عددها سبعة وقد تبناها القانون رقم 112.12 ويتعلق الأمر ب:1) (الباب المفتوح) ، 2) التسيير الديمقراطي ، 3)الاستقلال الذاتي، 4)  المساهمة الاقتصادية للأعضاء، 5)  التكوين والتدريب ، 6)  التعاون بين التعاونيات ، 7) الالتزام نحو المجتمع
+					      </div>
+					    </div>
+					  </div>
+					  <div class="card z-depth-0 bordered">
+					    <div class="card-header" id="heading4">
+					      <h5 class="mb-0 text-right">
+					        <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
+					          data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">ما هي أهداف التعاونية</button>
+					      </h5>
+					    </div>
+					    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+					      <div class="card-body text-right">
+أهداف التعاونية متعددة وتتميز عن تلك المتعلقة بالشركات والجمعيات، وهي أهداف اقتصادية،  اجتماعية، تربوية، ثقافية و بيئية
+					      </div>
+					    </div>
+					  </div>
+					  <div class="card z-depth-0 bordered">
+					    <div class="card-header" id="heading5">
+					      <h5 class="mb-0 text-right">
+					        <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
+					          data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+ما هي شروط الانضمام إلى تعاونية				        </button>
+					      </h5>
+					    </div>
+					    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+					      <div class="card-body text-right">
+الانضمام إلى التعاونية يقتضي ممارسة نشاط يدخل في مجال التعاونية (باستثناء التعاونيات السكنية التي يتعين عدم امتلاك العضو لسكن ملائم بالدائرة الترابية للتعاونية، وكذا تعاونيات الاستهلاك التي لا يتطلب الانضمام إليها ممارسة نشاط معين)
+مع ملاحظة مهمة أن الانضمام إلى تعاونية لا يعني التكامل (تعاونية تحتاج إلى محاسب إلى كاتبة إلى حارس...لا يمكن أن تتكون التعاونية فيما بينهم بل يتعين على التعاونية توظيفهم) والمطلوب في التعاونية "التماثل" أي ممارسة نفس النشاط
+
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+
+
+
+
+
+
+			<br/>
+			<center><hr style="width: 80%;" /></center>
+		</body>
+		<footer>
+				<div class="social-media" >
+				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
+				<svg class="svg-inline--fa fa-twitter-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path></svg><!-- <i class="fab fa-twitter-square"></i> -->
+				<svg class="svg-inline--fa fa-youtube-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path></svg><!-- <i class="fab fa-youtube-square"></i> -->
+				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
+				</div>
+				<hr>
+				<div class="footer-links">
+				<a href="#">Home</a>
+				<a href="#">Contact</a>
+				<a href="#">About us</a>
+				<a href="#">FAQ</a>
+
+				</div>
+			</div>
+		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+
+	</body>
+</html>
