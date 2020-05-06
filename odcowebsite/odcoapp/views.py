@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from odcoapp.models import Video,Photo,Audio,Doc,Acctualite,Secteur,Type,pre_post,Assistance
 
 # Create your views here.
 def Index(request):
-    return render(request,'index.html')
+    img = Photo.objects.all()[:4]
+    return render(request,'index.html', {"img": img})
 def IndexAR(request):
     return render(request,'indexAR.html')
 def Acctualite(request):

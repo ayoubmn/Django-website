@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from django.conf.urls.static import static
+from django.conf import settings
 from odcoapp.views import Index,IndexAR,Acctualite,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assistance,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
     path(r'',Index,name="first"),
     path(r'/', Index, name="Index"),
     path(r'ar', IndexAR, name="indexAR"),
@@ -40,3 +42,5 @@ urlpatterns = [
     path(r'contactar', ContactAR, name="ContactAR"),
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
