@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
             name='Video',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
+                ('name', models.CharField(max_length=100)),
                 ('url', models.CharField(max_length=100)),
                 ('date_of', models.DateTimeField(default=datetime.datetime.now, max_length=20)),
                 ('secteur', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Secteur')),
@@ -60,8 +60,8 @@ class Migration(migrations.Migration):
             name='Doc',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('url', models.CharField(max_length=100)),
+                ('name', models.CharField(max_length=100)),
+                ('url', models.FileField()),
                 ('date_of', models.DateTimeField(default=datetime.datetime.now, max_length=20)),
                 ('secteur', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Secteur')),
                 ('type', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Type')),
@@ -86,7 +86,7 @@ class Migration(migrations.Migration):
                 ('date_of', models.DateTimeField(default=datetime.datetime.now, max_length=20)),
                 ('text', models.TextField()),
                 ('pre_post', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.pre_post')),
-                ('secteur', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Secteur')),
+                ('field', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Secteur')),
             ],
         ),
         migrations.CreateModel(
@@ -98,6 +98,16 @@ class Migration(migrations.Migration):
                 ('date_of', models.DateTimeField(default=datetime.datetime.now, max_length=20)),
                 ('text', models.TextField()),
                 ('secteur', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='odcoapp.Secteur')),
+            ],
+        ),
+
+        migrations.CreateModel(
+            name='Programme',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('titre', models.CharField(max_length=100)),
+                ('date', models.DateField(default=0, max_length=20)),
+                ('text', models.TextField()),
             ],
         ),
     ]

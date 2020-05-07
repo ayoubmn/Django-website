@@ -17,20 +17,20 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-from odcoapp.views import Index,IndexAR,Acctualite,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assistance,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR
+from odcoapp.views import Index,IndexAR,Acctu,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assist,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'',Index,name="first"),
     path(r'/', Index, name="Index"),
     path(r'ar', IndexAR, name="indexAR"),
-    path(r'acctualite', Acctualite, name="Acctualite"),
+    path(r'acctualite', Acctu, name="Acctualite"),
     path(r'acctualitear', AcctualiteAR, name="AcctualiteAR"),
     path(r'conseileco', ConseilEco, name="ConseilEco"),
     path(r'conseilecoar', ConseilEcoAR, name="ConseilEcoAR"),
     path(r'conseiljuri', ConseilJuri, name="ConseilJuri"),
     path(r'conseiljuriar', ConseilJuriAR, name="ConseilJuriAR"),
-    path(r'assistance', Assistance, name="Assistance"),
+    path(r'assistance', Assist, name="Assistance"),
     path(r'assistancear', AssistanceAR, name="AssistanceAR"),
     path(r'pre', Pre, name="Pre"),
     path(r'prear', PreAR, name="PreAR"),

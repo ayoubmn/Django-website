@@ -838,28 +838,20 @@
 					<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 					<center><h2 style="color:#b97129; font-family:Georgia; font-size: 30pt;">PROGRAMME</h2></center>
 						<div class="container" style="min-width: 500px;">
+							{% for p in prog  %}
 							<div class="row" >
 								<div class=" text-right col-2 prog-elem" style="float: right;">
-									<h1 class="display-4"><span class="badge badge-secondary">22</span></h1>
-									<h2>APR</h2>
+									<h1 class="display-4"><span class="badge badge-secondary">{{ p.date|date:"j" }}</span></h1>
+									<h2>{{ p.date|date:"M" }}</h2>
 								</div>
 								<div class="prog-text">
-									<h3 class="text-uppercase"><strong>Conference </strong></h3>
+									<h3 class="text-uppercase"><strong>{{p.titre}}</strong></h3>
 
-									<p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<p>{{p.text}}</p>
 								</div>
 							</div>
-							<div class="row " >
-								<div class=" text-right col-2 prog-elem" style="float: left;">
-									<h1 class="display-4"><span class="badge badge-secondary">05</span></h1>
-									<h2>MAY</h2>
-								</div>
-								<div class="prog-text">
-									<h3 class="text-uppercase"><strong>Meeting</strong></h3>
+							{% endfor %}
 
-									<p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
 						</div>
 				</div>
 

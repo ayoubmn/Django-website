@@ -1,4 +1,6 @@
 {% load static %}
+{% block content %}
+
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 	<head>
 		<meta charset="UTF-8">
@@ -440,142 +442,43 @@
 						</div>
 						<div class="item flex-contenue" >
 							<div class="col pt-2">
-								<!--generale-->
+
+							{% for s in sect %}
+								{% if s.name == "Generale" %}
 							    <div id="Generale" >
-									<div id="accordion">
-									  <div class="card">
-									    <button type="button" data-toggle="collapse" data-target="#collapse1-1" aria-expanded="true" aria-controls="collapse1-1">
-									    	<div class="card-header" id="heading1-1">
-									      		<h5 class="mb-0 text-right" >
-													المساعدة في التسيير والإدارة									    	</div>
-									    </button>
-									    <div id="collapse1-1" class="collapse show" aria-labelledby="heading1-1" data-parent="#accordion">
-									      <div class="card-body text-right">
-											<b>	الجمعيات العامة العادية السنوية</b>
-											<br>
-											يتعلق الأمر باجتماع الجمعية العامة يستدعى له كافة الأعضاء وينعقد وجوبا مرة واحدة في السنة  للبت وجوبا في نقط محددة قانونا، وتكون هذه الفترة خلال ستة (6) أشهر الموالية لاختتام السنة المالية المنصوص عليها بالنظام الأساسي للتعاونية، وتتميز بكونها تتوفر على جدول أعمال محدد بموجب القانون ولا سيما المادة 41 ، وللإشارة فإن جدول الأعمال يتكون من النقط التالية
-											<br>
-											الاستماع إلى تقرير مجلس الإدارة أو المسير أو المسيرين
-											<br>
-											  الاستماع إلى تقرير مراقب أو مراقبي الحسابات، عند الاقتضاء
-											<br>
-											 الاستماع إلى تقرير لجنة الرقابة، عند الاقتضاء
-											<br>
-											 الموافقة على الحسابات السنوية أو تصحيحها أو رفضها
-											<br>
-											 إبراء ذمة أعضاء مجلس الإدارة أو المسير أو المسيرين أو رفض ذلك
-											<br>
-											 توزيع الفائض السنوي
-											<br>
-											 تقرير مكافأة الحصص
-											<br>
-											 الموافقة على مشروع ميزانية التسيير للسنة المقبلة
-											<br>
-											 تعيين أعضاء مجلس الإدارة أو المسير أو المسيرين وعزلهم
-											<br>
-											تعيين أعضاء لجنة الرقابة عند الاقتضاء
+								{% else %}
+								<div id="{{s.name}}" style="display: none;">
+								{% endif %}
+							    	<br><center><h2>{{s.name}}</h2></center>
+									<center><hr style="width: 80%;" /></center>
+									<div id="accordion{{s.name}}" >
+									{% for p in post %}
 
-											<br>
-											 تعيين مراقب أو مراقبي الحسابات، عند الاقتضاء، وتحديد أجرتهم.
-											<br>
-											<br>
-											<b>	التقييدات المعدلة</b>
-
-											<br>
-											تتم التقييدات المعدلة داخل أجل ثلاثين (30) يوما وجوبا من تاريخ إقرارها، وتهم التقييدات المعدلة  النقط التالية:
-											<br>
-											 تغيير في إدارة أو تسيير التعاونية
-											<br>
-											 تغيير في النظام الأساسي للتعاونية
-											<br>
-											 عمليات التحويل أو الإدماج أو الانفصال أو الحل أو التصفية
-											<br>
-											 تكوين الضمانات على الأصول
-											<br>
-											 صدور المقررات القضائية المتخذة لإجراءات تحفظية في مواجهة التعاونية
+										{% if s.name in p.secteur.name %}
+										  <div class="card">
+											<div class="card-header" id="heading{{p.id}}">
+											  <h5 class="mb-0 text-center">
+												<button class="btn  collapsed " data-toggle="collapse" data-target="#collapse{{p.id}}" aria-expanded="false" aria-controls="collapse{{p.id}}">
+												  {{p.titre}}
+												</button>
+											  </h5>
 											</div>
-									    </div>
-									  </div>
-
-									    </div>
-									  </div>
+											<div id="collapse{{p.id}}" class="collapse" aria-labelledby="heading{{p.id}}" data-parent="#accordion{{s.name}}">
+											  <div class="card-body text-center">
+												  {{p.text}}
+											  </div>
+											</div>
+										  </div>
+										{% endif %}
+									{% endfor %}
 									</div>
 								</div>
-								<!--agriculture-->
-							    <div id="Agriculture" style="display: none;">
-							    	<br><center><h2>Agriculture</h2></center>
-									<div id="accordion" >
-									  <div class="card">
-									    <div class="card-header" id="heading2-1">
-									      <h5 class="mb-0">
-									        <button class="btn " data-toggle="collapse" data-target="#collapse2-1" aria-expanded="true" aria-controls="collapse2-1">
-									          Collapsible Group Item #1
-									        </button>
-									      </h5>
-									    </div>
-
-									    <div id="collapse2-1" class="collapse show" aria-labelledby="heading2-1" data-parent="#accordion">
-									      <div class="card-body">
-									        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-									      </div>
-									    </div>
-									  </div>
-									  <div class="card">
-									    <div class="card-header" id="heading2-2">
-									      <h5 class="mb-0">
-									        <button class="btn  collapsed" data-toggle="collapse" data-target="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
-									          Collapsible Group Item #2
-									        </button>
-									      </h5>
-									    </div>
-									    <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2" data-parent="#accordion">
-									      <div class="card-body">
-									        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-									      </div>
-									    </div>
-									  </div>
-									</div>
-								</div>
-								<!--beaute-->
-							    <div id="Forêts" style="display: none;">
-							    	<br><center><h2>Forêts</h2></center>
-									<div id="accordion">
-									  <div class="card">
-									    <div class="card-header" id="heading3-1">
-									      <h5 class="mb-0">
-									        <button class="btn " data-toggle="collapse" data-target="#collapse3-1" aria-expanded="true" aria-controls="collapse3-1">
-									          Collapsible Group Item #1
-									        </button>
-									      </h5>
-									    </div>
-
-									    <div id="collapse3-1" class="collapse show" aria-labelledby="heading3-1" data-parent="#accordion">
-									      <div class="card-body">
-									        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-									      </div>
-									    </div>
-									  </div>
-									  <div class="card">
-									    <div class="card-header" id="heading3-2">
-									      <h5 class="mb-0">
-									        <button class="btn  collapsed" data-toggle="collapse" data-target="#collapse3-2" aria-expanded="false" aria-controls="collapse3-2">
-									          Collapsible Group Item #2
-									        </button>
-									      </h5>
-									    </div>
-									    <div id="collapse3-2" class="collapse" aria-labelledby="heading3-2" data-parent="#accordion">
-									      <div class="card-body">
-									        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-									      </div>
-									    </div>
-									  </div>
-									</div>
-								</div>
-
-
+								{% endfor %}
 
 							</div>
 						</div>
+
+					</div>
 
 					</div>
 
@@ -609,3 +512,4 @@
 
 	</body>
 </html>
+{% endblock %}

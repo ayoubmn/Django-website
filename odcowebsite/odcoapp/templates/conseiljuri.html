@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 	<head>
@@ -385,40 +386,23 @@
 
 					<div class="flex-juridique">
 						<div class="item law-col bg-light">
+							{% for d in doc %}
 							<div class="container">
-							  <a href="doc/112ar.pdf"><img class="image-pdf" src="img/hammer.jpg" alt="" />
-							  <p class="title text-center">Loi 112.12</p>
+							  <a href="{{d.url}}"><img class="image-pdf" src="{% static 'odcoapp/media/hammer.jpg' %}" alt="" />
+							  <p class="title text-center">{{d.name}}</p>
 							  <div class="overlay"></div></a>
 							</div>
-							<div class="container">
-							  <a href="#"><img class="image-pdf" src="img/m-justice.jpg" alt="" />
-							  <p class="title text-center">Arrête du ministre de la justice</p>
-							  <div class="overlay"></div></a>
-							</div>
-							<div class="container">
-							  <a href="#"><img class="image-pdf" src="img/hammer.jpg" alt="" />
-							  <p class="title text-center">Loi 74.16</p>
-							  <div class="overlay"></div></a>
-							</div>
-							<div class="container">
-							  <a href="#"><img class="image-pdf" src="img/regle.jpg" alt="" />
-							  <p class="title text-center">les réglés d'organisation des coopératives</p>
-							  <div class="overlay"></div></a>
-							</div>
-
-
+							{% endfor %}
 						</div>
 
 						<div class="item video-col">
 							<div style="margin-left: 5%; margin-top: 1%;">
+								{% for v in video %}
 								<div>
-									<br><h2>C'est quoi une cooperative</h2><br>
-									<iframe class="youtube" width="922" height="462" src="https://www.youtube.com/embed/JaRupj8433E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<h2>{{v.name}}</h2>
+									<iframe  id="{{v.id}}" width="922" height="462" src="{{v.url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
-								<div>
-									<br><h2>La cooperative et la loi 112.12</h2><br>
-									<iframe class="youtube"  width="922" height="462" src="https://www.youtube.com/embed/vHryRKorzdw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-								</div>
+								{% endfor %}
 							</div>
 
 						</div>
@@ -454,3 +438,4 @@
 
 	</body>
 </html>
+{% endblock %}
