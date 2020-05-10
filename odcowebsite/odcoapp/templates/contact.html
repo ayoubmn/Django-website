@@ -1,25 +1,28 @@
 {% load static %}
+{% block content %}
 
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-		<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-		<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
-		<title>ODCO-Maroc</title>
-		<link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1" >
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png"
+          href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon"
+          href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type=""
+          href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+          color="#111">
+    <title>ODCO-Maroc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 
-
-
-		<style>
+    <style>
 		* {
 		  box-sizing: border-box;
 		  margin: 0px;
@@ -212,66 +215,80 @@
 
 
 
-		</style>
-			<script>
+
+
+
+    </style>
+    <script>
 			  window.console = window.console || function(t) {};
-			</script>
 
 
-	</head>
 
-	<body translate="no">
-
-					<header style="height:auto;">
-						<nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
-							<div class="container-fluid">
-								<a href="/" ><img src="{% static 'odcoapp/media/logo.png' %}" ></a>
-								<button type="button"  class="navbar-toggle d-lg-none pg-light" data-toggle="collapse" data-target="#navbarSupportedContent" area-hidden="true">
-									<img  src="{% static 'odcoapp/media/menu.png' %}" >
-								</button>
-
-								<div id="navbarSupportedContent" class="collapse navbar-collapse">
-									<ul class="navbar-nav ml-auto">
-									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;">
-									        <input id="search-input" class="form-control item" type="text" placeholder="Search">
-									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
-									      </form>
-									    </li>
-										<li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Acceuil <span class="sr-only">(current)</span></a></li>
-										<li class="nav-item">
-											<a href="acctualite" class="nav-link text-uppercase font-weight-bold">Actualite</a>
-										</li>
-
-										<li class="nav-item">
-											<div class="dropdown">
-											  <button class="btn  dropdown-toggle nav-link text-uppercase font-weight-bold" type="button" data-toggle="dropdown">
-											    Conseil
-											  </button>
-											  <div class="dropdown-menu">
-											    <a class="dropdown-item" href="conseileco">Conseils economique</a>
-											    <a class="dropdown-item" href="conseiljuri">Conseils juridique</a>
-											  </div>
-											</div>
-										</li>
-										<li class="nav-item"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a></li>
-
-										<li class="nav-item"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
-										<li class="nav-item dropdown">
-				                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-fr"> </span> Français</a>
-				                            <div class="dropdown-menu" aria-labelledby="dropdown09">
-				                                <a class="dropdown-item" href="ar"><span class="flag-icon flag-icon-ae"> </span>  Arabe</a>
-				                            </div>
-				                        </li>
-									</ul>
-								</div>
-							</div>
-						</nav>
-					</header>
+    </script>
 
 
-					<div class="sticky-btn">
-						<style type="text/css">
+</head>
+
+<body translate="no">
+
+<header style="height:auto;">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
+        <div class="container-fluid">
+            <a href="/"><img src="{% static 'odcoapp/media/logo.png' %}"></a>
+            <button type="button" class="navbar-toggle d-lg-none pg-light" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" area-hidden="true">
+                <img src="{% static 'odcoapp/media/menu.png' %}">
+            </button>
+
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+
+                            <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
+                            <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Acceuil
+                        <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item">
+                        <a href="acctualite" class="nav-link text-uppercase font-weight-bold">Actualite</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn  dropdown-toggle nav-link text-uppercase font-weight-bold" type="button"
+                                    data-toggle="dropdown">
+                                Conseil
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="conseileco">Conseils economique</a>
+                                <a class="dropdown-item" href="conseiljuri">Conseils juridique</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a>
+                    </li>
+
+                    <li class="nav-item"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                class="flag-icon flag-icon-fr"> </span> Français</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="ar"><span class="flag-icon flag-icon-ae"> </span> Arabe</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="sticky-btn">
+    <style type="text/css">
 							.sticky-btn {
 					  		-webkit-filter: drop-shadow(5px 5px 5px #222);
 					  		filter: drop-shadow(5px 5px 5px #222);
@@ -285,226 +302,261 @@
 							}
 
 
-						</style>
-						<button style="padding: 0; margin: 0;" href="#" data-toggle="tooltip" data-placement="left" title="vous aves une question">
-							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
-						</button>
-
-					</div>
-				<div class="container">
-					<!--Section: Contact v.2-->
-					<section class="mb-4">
-
-					    <!--Section heading-->
-					    <h2 class="h1-responsive font-weight-bold text-center my-4">Contacter nous</h2>
-					    <!--Section description-->
-					    <p class="text-center w-responsive mx-auto mb-5">Vous avez d'autre questions qui n'est pas été traitter dans notre <a href="faq">FAQ</a> ou difficille pour notre CHATBOT ? <br> n'hésiter pas de nous contacter directement  </p>
-
-					    <div class="row">
-
-					        <!--Grid column-->
-					        <div class="col-md-9 mb-md-0 mb-5">
-					            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-					                <!--Grid row-->
-					                <div class="row">
-
-					                    <!--Grid column-->
-					                    <div class="col-md-6">
-					                        <div class="md-form mb-0">
-					                            <label for="name" class="">nom</label>
-					                            <input type="text" id="name" name="name" class="form-control">
-					                        </div>
-					                    </div>
-					                    <!--Grid column-->
-
-					                    <!--Grid column-->
-					                    <div class="col-md-6">
-					                        <div class="md-form mb-0">
-					                            <label for="email" class="">email</label>
-					                            <input type="text" id="email" name="email" class="form-control">
-					                        </div>
-					                    </div>
-					                    <!--Grid column-->
-
-					                </div>
-					                <!--Grid row-->
-
-					                <!--Grid row-->
-					                <div class="row">
-					                    <div class="col-md-12">
-					                        <div class="md-form mb-0">
-					                            <label for="subject" class="">sujet</label>
-					                            <input type="text" id="subject" name="subject" class="form-control">
-					                        </div>
-					                    </div>
-					                </div>
-					                <!--Grid row-->
-
-					                <!--Grid row-->
-					                <div class="row">
-
-					                    <!--Grid column-->
-					                    <div class="col-md-12">
-
-					                        <div class="md-form">
-					                            <label for="message">Votre message</label>
-					                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-					                        </div>
-
-					                    </div>
-					                </div>
-					                <!--Grid row-->
-
-					            </form>
-					            <br>
-					            <div class="text-center text-md-left">
-					                <center>
-					                	<a class="btn btn-primary text-white"  style="font-size: 1.5rem;" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
-					            	</center>
-					            </div>
-					            <div class="status"></div>
-					        </div>
-					        <!--Grid column-->
-
-					        <!--Grid column-->
-					        <div class="col-md-3 text-center">
-					            <ul class="list-unstyled mb-0">
-
-					                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-					                    <p>05.37.77.10.34</p>
-					                </li>
-					                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-					                    <p>13, rue Dayet Aoua, BP:1297, Agdal, Rabat, Maroc</p>
-										<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1653.7641269359585!2d-6.850676!3d34.004649!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8e26cd83f7bfcda!2z2KfZhNil2K_Yp9ix2Kkg2KfZhNi52KfZhdipINmE2YXZg9iq2Kgg2KrZhtmF2YrYqSDYp9mE2KrYudin2YjZhg!5e0!3m2!1sfr!2sus!4v1588085954819!5m2!1sfr!2sus" width="210" height="210" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-					                </li>
-
-
-					            </ul>
-					        </div>
-					        <!--Grid column-->
-
-					    </div>
-					</section>
-					<!--Section: Contact v.2-->
-					    <br>
-
-					    <div class="container">
-					    	<table class="table">
-							  <thead class="thead-dark">
-							    <tr>
-							      <th scope="col">Délégations</th>
-							      <th scope="col">Téléphone & Fax</th>
-							      <th scope="col">Adresses</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <th>Beni Mellal</th>
-							      <td>05.23.42.04.31</td>
-							      <td>Avenue chabi wlad hamdan C.P:60 1750</td>
-							    </tr>
-							    <tr>
-							      <th>Agadir</th>
-							      <td>05.28.23.33.97</td>
-							      <td>Avenue hassan I imm amal souss C.P:532</td>
-							    </tr>
-							    <tr>
-							      <th>al Hoceima</th>
-							      <td>05.39.84.14.75</td>
-							      <td>Avenue al andalos C.P:3259</td>
-							    </tr>
-							    <tr>
-							      <th>Casablanca</th>
-							      <td>05-22-30-44-36</td>
-							      <td>N°45 Rue ELHABACHA 2ème étage app 3 BP 1066, Casablanca, Maroc</td>
-							    </tr>
-							    <tr>
-							      <th>Eddakhla</th>
-							      <td>05-28-93-29-83</td>
-							      <td>Imm Al Khair 2ème Etage Quartier Mly Rachid, Ed-Dakhla, Maroc</td>
-							    </tr>
-							    <tr>
-							      <th>Fès</th>
-							      <td>05.35.65.43.62</td>
-							      <td>Avenue Zerktouni, fes al atlas C.P:60 2039</td>
-							    </tr>
-							    <tr>
-							      <th>Guelmim</th>
-							      <td>05.28.87.30.38</td>
-							      <td>Quartier Al Qods N°:840 C.P:415</td>
-							    </tr>
-							    <tr>
-							      <th>Kénitra</th>
-							      <td>05.37.37.56.31</td>
-							      <td>Angle avenue Med diouri et rue alyarmouk imm "S" N°:9, C.P:249</td>
-							    </tr>
-							    <tr>
-							      <th>Laayoune</th>
-							      <td>05.28.89.29.48</td>
-							      <td>Lotissement Mly rachid route semara C.P:493</td>
-							    </tr>
-							    <tr>
-							      <th>Marrakech</th>
-							      <td>05.24.43.77.88</td>
-							      <td>Avenue yougoslavie N°:82 imm malak C.P:60 2209</td>
-							    </tr>
-							    <tr>
-							      <th>Meknès</th>
-							      <td>05.35.51.49.80</td>
-							      <td>Rue Anticirapi Etage:1 N°:1 C.P:6332</td>
-							    </tr>
-							    <tr>
-							      <th>Oujda</th>
-							      <td>05.36.68.17.04</td>
-							      <td>Avenue Med V imm albourssa Etage:3 N°:5 C.P:49</td>
-							    </tr>
-							    <tr>
-							      <th>Safi</th>
-							      <td>05.24.62.10.95</td>
-							      <td>Lotissement Bouzoubea Avenue Ibn Zeydoun Etage:3 N°:6 Nouvelle ville C.P:366</td>
-							    </tr>
-							    <tr>
-							      <th>Settat</th>
-							      <td>05.23.40.51.45</td>
-							      <td>Avenue hassan II, imm 20,Etage:2, N°:6, C.P:813</td>
-							    </tr>
-							    <tr>
-							      <th>Tanger</th>
-							      <td>05.39.94.67.85</td>
-							      <td>Avenue Youssef ben tachfin imm al frayji C.P:1134</td>
-							    </tr>
-							  </tbody>
-							</table>
-
-					    </div>
-				</div>
 
 
 
+    </style>
+    <a href="https://www.facebook.com/Odco-105758854463657/">
+        <button style="padding: 0; margin: 0;" data-toggle="tooltip" data-placement="left"
+                title="vous aves une question">
+            <img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
+        </button>
+    </a>
 
-			<br/>
-			<center><hr style="width: 80%;" /></center>
-		</body>
-		<footer>
-				<div class="social-media" >
-				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
-				<svg class="svg-inline--fa fa-twitter-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path></svg><!-- <i class="fab fa-twitter-square"></i> -->
-				<svg class="svg-inline--fa fa-youtube-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path></svg><!-- <i class="fab fa-youtube-square"></i> -->
-				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
-				</div>
-				<hr>
-				<div class="footer-links">
-				<a href="#">Home</a>
-				<a href="#">Contact</a>
-				<a href="#">About us</a>
-				<a href="#">FAQ</a>
+</div>
+<div class="container">
+    <!--Section: Contact v.2-->
+    <section class="mb-4">
 
-				</div>
-			</div>
-		</footer>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contacter nous</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Vous avez d'autre questions qui n'est pas été traitter dans
+            notre <a href="faq">FAQ</a> ou difficille pour notre CHATBOT ? <br> n'hésiter pas de nous contacter
+            directement </p>
+
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form method="post">
+                    {% csrf_token %}
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <label for="nom" class="">nom</label>
+                                <input type="text" id="nom" name="nom" class="form-control">
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <label for="email" class="">email</label>
+                                <input type="text" id="email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <label for="sujet" class="">sujet</label>
+                                <input type="text" id="sujet" name="sujet" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+
+                            <div class="md-form">
+                                <label for="msg">Votre message</label>
+                                <textarea type="text" id="msg" name="msg" rows="2"
+                                          class="form-control md-textarea"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <br>
+                    <div class="text-center text-md-left">
+                        <center>
+                            <button class="btn btn-primary text-white" style="font-size: 1.5rem;" type="submit">
+                                Envoyer
+                            </button>
+                        </center>
+                    </div>
+                </form>
+                <div class="status"></div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>05.37.77.10.34</p>
+                    </li>
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>13, rue Dayet Aoua, BP:1297, Agdal, Rabat, Maroc</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1653.7641269359585!2d-6.850676!3d34.004649!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8e26cd83f7bfcda!2z2KfZhNil2K_Yp9ix2Kkg2KfZhNi52KfZhdipINmE2YXZg9iq2Kgg2KrZhtmF2YrYqSDYp9mE2KrYudin2YjZhg!5e0!3m2!1sfr!2sus!4v1588085954819!5m2!1sfr!2sus"
+                                width="210" height="210" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </li>
 
 
-	</body>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+        </div>
+    </section>
+    <!--Section: Contact v.2-->
+    <br>
+
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Délégations</th>
+                <th scope="col">Téléphone & Fax</th>
+                <th scope="col">Adresses</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Beni Mellal</th>
+                <td>05.23.42.04.31</td>
+                <td>Avenue chabi wlad hamdan C.P:60 1750</td>
+            </tr>
+            <tr>
+                <th>Agadir</th>
+                <td>05.28.23.33.97</td>
+                <td>Avenue hassan I imm amal souss C.P:532</td>
+            </tr>
+            <tr>
+                <th>al Hoceima</th>
+                <td>05.39.84.14.75</td>
+                <td>Avenue al andalos C.P:3259</td>
+            </tr>
+            <tr>
+                <th>Casablanca</th>
+                <td>05-22-30-44-36</td>
+                <td>N°45 Rue ELHABACHA 2ème étage app 3 BP 1066, Casablanca, Maroc</td>
+            </tr>
+            <tr>
+                <th>Eddakhla</th>
+                <td>05-28-93-29-83</td>
+                <td>Imm Al Khair 2ème Etage Quartier Mly Rachid, Ed-Dakhla, Maroc</td>
+            </tr>
+            <tr>
+                <th>Fès</th>
+                <td>05.35.65.43.62</td>
+                <td>Avenue Zerktouni, fes al atlas C.P:60 2039</td>
+            </tr>
+            <tr>
+                <th>Guelmim</th>
+                <td>05.28.87.30.38</td>
+                <td>Quartier Al Qods N°:840 C.P:415</td>
+            </tr>
+            <tr>
+                <th>Kénitra</th>
+                <td>05.37.37.56.31</td>
+                <td>Angle avenue Med diouri et rue alyarmouk imm "S" N°:9, C.P:249</td>
+            </tr>
+            <tr>
+                <th>Laayoune</th>
+                <td>05.28.89.29.48</td>
+                <td>Lotissement Mly rachid route semara C.P:493</td>
+            </tr>
+            <tr>
+                <th>Marrakech</th>
+                <td>05.24.43.77.88</td>
+                <td>Avenue yougoslavie N°:82 imm malak C.P:60 2209</td>
+            </tr>
+            <tr>
+                <th>Meknès</th>
+                <td>05.35.51.49.80</td>
+                <td>Rue Anticirapi Etage:1 N°:1 C.P:6332</td>
+            </tr>
+            <tr>
+                <th>Oujda</th>
+                <td>05.36.68.17.04</td>
+                <td>Avenue Med V imm albourssa Etage:3 N°:5 C.P:49</td>
+            </tr>
+            <tr>
+                <th>Safi</th>
+                <td>05.24.62.10.95</td>
+                <td>Lotissement Bouzoubea Avenue Ibn Zeydoun Etage:3 N°:6 Nouvelle ville C.P:366</td>
+            </tr>
+            <tr>
+                <th>Settat</th>
+                <td>05.23.40.51.45</td>
+                <td>Avenue hassan II, imm 20,Etage:2, N°:6, C.P:813</td>
+            </tr>
+            <tr>
+                <th>Tanger</th>
+                <td>05.39.94.67.85</td>
+                <td>Avenue Youssef ben tachfin imm al frayji C.P:1134</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<br/>
+<center>
+    <hr style="width: 80%;"/>
+</center>
+</body>
+<footer>
+    <div class="social-media">
+        <svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+        </svg><!-- <i class="fab fa-facebook-square"></i> -->
+        <svg class="svg-inline--fa fa-twitter-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="twitter-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+        </svg><!-- <i class="fab fa-twitter-square"></i> -->
+        <svg class="svg-inline--fa fa-youtube-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="youtube-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path>
+        </svg><!-- <i class="fab fa-youtube-square"></i> -->
+        <svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+        </svg><!-- <i class="fab fa-facebook-square"></i> -->
+    </div>
+    <hr>
+    <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">About us</a>
+        <a href="#">FAQ</a>
+
+    </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+
+</body>
 </html>
+
+{% endblock %}

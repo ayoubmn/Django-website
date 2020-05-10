@@ -2,7 +2,7 @@ from django.contrib import admin
 
 
 # Register your models here.
-from odcoapp.models import Video,Photo,Audio,Doc,Acctualite,Secteur,Type,pre_post,Assistance,Programme
+from odcoapp.models import Video,Photo,Audio,Doc,Acctualite,Secteur,Type,pre_post,Assistance,Programme,ContactReception
 
 
 admin.site.register(Video)
@@ -15,3 +15,4 @@ admin.site.register(Type)
 admin.site.register(pre_post)
 admin.site.register(Assistance)
 admin.site.register(Programme)
+admin.site.register(ContactReception)

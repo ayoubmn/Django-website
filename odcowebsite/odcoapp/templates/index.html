@@ -648,7 +648,7 @@
 										<button type="button" class="btn btn-lg btn-info" data-dismiss="modal">
 											Français</button>
 										<!-- The close button in the bottom of the modal -->
-										<a href="#"><button type="button" class="btn btn-lg btn-info">العربية</button> </a>
+										<a href="ar"><button type="button" class="btn btn-lg btn-info">العربية</button> </a>
 										<!-- The save changes button in the bottom of the modal -->
 									</div>
 								</div>
@@ -668,8 +668,9 @@
 								<div id="navbarSupportedContent" class="collapse navbar-collapse">
 									<ul class="navbar-nav ml-auto">
 									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;">
-									        <input id="search-input" class="form-control item" type="text" placeholder="Search">
+									      <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+
+									        <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
 									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
 									      </form>
 									    </li>
@@ -722,10 +723,11 @@
 
 
 						</style>
-						<button style="padding: 0; margin: 0;" href="#" data-toggle="tooltip" data-placement="left" title="vous aves une question">
+						<a href="https://www.facebook.com/Odco-105758854463657/">
+						<button style="padding: 0; margin: 0;"  data-toggle="tooltip" data-placement="left" title="vous aves une question">
 							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
 						</button>
-
+						</a>
 					</div>
 
 					<!-- hero   section-->
@@ -742,32 +744,19 @@
 						<div class="item hero-welcome ">
 							<center><img id="maroc" src="{% static 'odcoapp/media/maroc.png' %}"  ></center>
 							<br>
-							<center><div class="card" style="width: 18rem;">
+							<center><div class="card" style="width: auto;">
 							  <div class="card-header " style="font-family: georgia; font-size: 20pt; background-color: #b97129;">
 							    ACCTUALITE
 							  </div>
 								<div class="list-group">
-								  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+
+									{% for a in acct %}
+								  <a href="acctuspe/lactu?id={{a.titre}}" class="list-group-item list-group-item-action flex-column align-items-start ">
 								    <div class="d-flex w-100 justify-content-between">
-								      <h5 class="mb-1">List group item heading</h5>
-								      <small>3 days ago</small>
+								      <h5 class="mb-1">{{a.titre|truncatechars:50}}</h5>
 								    </div>
-								    <small>Donec id elit non mi porta.</small>
 								  </a>
-								  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-								    <div class="d-flex w-100 justify-content-between">
-								      <h5 class="mb-1">List group item heading</h5>
-								      <small class="text-muted">3 days ago</small>
-								    </div>
-								    <small class="text-muted">Donec id elit non mi porta.</small>
-								  </a>
-								  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-								    <div class="d-flex w-100 justify-content-between">
-								      <h5 class="mb-1">List group item heading</h5>
-								      <small class="text-muted">3 days ago</small>
-								    </div>
-								    <small class="text-muted">Donec id elit non mi porta.</small>
-								  </a>
+									{% endfor %}
 								</div>
 							</div></center>
 						</div>
@@ -819,12 +808,12 @@
 
 				<article class="bg-light">
 					<div class="item-wrapper ">
-						<div class="item"><i class="fas fa-plus"></i>Assistance</div>
-						<div class="item"><i class="fas fa-newspaper"></i>Actualité</div>
-						<div class="item"><i class="fas fa-balance-scale"></i>Loi Marocaine</div>
-						<a href="file:///C:/Users/toshiba/Desktop/website/faq.html"><div class="item"><i class="fas fa-hands-helping"></i> FAQ</div></a>
-						<div class="item"><i class="fas fa-calendar-week"></i>Calendrier</div>
-						<div class="item"><i class="fas fa-question"></i>Aide</div>
+						<a href="assistance"><div class="item"><i class="fas fa-plus"></i>Assistance</div></a>
+						<a href="acctualite"><div class="item"><i class="fas fa-newspaper"></i>Actualité</div></a>
+						<a href="conseiljuri"><div class="item"><i class="fas fa-balance-scale"></i>Loi Marocaine</div></a>
+						<a href="faq"><div class="item"><i class="fas fa-hands-helping"></i> FAQ</div></a>
+						<a href="#"><div class="item"><i class="fas fa-calendar-week"></i>Calendrier</div></a>
+						<a href="contact"><div class="item"><i class="fas fa-question"></i>Aide</div></a>
 					</div>
 				</article>
 			<center><hr style="width:80% ;"/></center>
@@ -838,16 +827,15 @@
 					<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 					<center><h2 style="color:#b97129; font-family:Georgia; font-size: 30pt;">PROGRAMME</h2></center>
 						<div class="container" style="min-width: 500px;">
-							{% for p in prog  %}
+						{% for p in prog %}
 							<div class="row" >
 								<div class=" text-right col-2 prog-elem" style="float: right;">
 									<h1 class="display-4"><span class="badge badge-secondary">{{ p.date|date:"j" }}</span></h1>
-									<h2>{{ p.date|date:"M" }}</h2>
+									<h2>{{ p.date|date:"b" }}</h2>
+
 								</div>
 								<div class="prog-text">
-									<h3 class="text-uppercase"><strong>{{p.titre}}</strong></h3>
-
-									<p>{{p.text}}</p>
+									<h4 class="text-uppercase">{{p.titre|truncatechars:60}}</h4>
 								</div>
 							</div>
 							{% endfor %}
@@ -868,7 +856,7 @@
 					  <div class="carousel-inner" style="min-width: 350px;">
 
 					    <div class="carousel-item active">
-					      <img class="d-block w-100 photo-size" src="{% static 'images/2.png' %}" alt="First slide">
+					      <img class="d-block w-100 photo-size" src="{% static 'odcoapp/media/odeco1.jpg' %}" alt="First slide">
 					    </div>
 						{% for i in img %}
 							<div class="carousel-item">
@@ -908,48 +896,51 @@
 						          <div class="container bg-white">
 						          			<br/>
 						                  	<center><h6 class="font-weight-bold text-uppercase">secteurs</h6></center>
-						                  	<center><hr style="width: 80%;" /></center>
-						                  	<br/>
+									  <center>
+										  <hr style="width: 80%;"/>
+									  </center>
+									  <br/>
 						                  <div class="row " >
 						                    <div class="col-lg-3 mb-4">
 						                      <ul class="list-unstyled">
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Main d'Œuvre</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Pêche</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Consommation</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Transport</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Commerce de détail</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Exploitation des carrières</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Argan</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Generale" class="nav-link text-small pb-0">Generale</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Pêche" class="nav-link text-small pb-0">Pêche</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Consommation" class="nav-link text-small pb-0 ">Consommation</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Transport" class="nav-link text-small pb-0 ">Transport</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Commerce de détail" class="nav-link text-small pb-0 ">Commerce de détail</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Exploitation des carrières" class="nav-link text-small pb-0 ">Exploitation des carrières</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Argan" class="nav-link text-small pb-0 ">Argan</a></li>
 
 						                      </ul>
 						                    </div>
 						                    <div class="col-lg-3 mb-4">
 						                      <ul class="list-unstyled">
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Agriculture</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Mines</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Habitat</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Alphabétisation</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Art et culture</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Commerce électronique</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Agriculture" class="nav-link text-small pb-0">Agriculture</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Mines" class="nav-link text-small pb-0 ">Mines</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Habitat" class="nav-link text-small pb-0 ">Habitat</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Alphabétisation" class="nav-link text-small pb-0 ">Alphabétisation</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Art et culture" class="nav-link text-small pb-0 ">Art et culture</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Commerce électronique" class="nav-link text-small pb-0 ">Commerce électronique</a></li>
 
 						                      </ul>
 						                    </div>
 						                    <div class="col-lg-3 mb-4">
 						                      <ul class="list-unstyled">
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Denrées alimentaires</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Forêts</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Artisanat</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Télécommunication</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Tourisme</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Centres de gestion</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Denrées alimentaires" class="nav-link text-small pb-0">Denrées alimentaires</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Forêts" class="nav-link text-small pb-0 ">Forêts</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Artisanat" class="nav-link text-small pb-0 ">Artisanat</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Télécommunication" class="nav-link text-small pb-0 ">Télécommunication</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Tourisme" class="nav-link text-small pb-0 ">Tourisme</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Centres de gestion" class="nav-link text-small pb-0 ">Centres de gestion</a></li>
 
 						                      </ul>
 						                    </div>
 						                    <div class="col-lg-3 mb-4">
 						                      <ul class="list-unstyled">
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Traitement de déchets</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Imprimeries - Papeteries</a></li>
-						                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">plantes aromatiques et medicinales</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Traitement de déchets" class="nav-link text-small pb-0">Traitement de déchets</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Imprimeries - Papeteries" class="nav-link text-small pb-0 ">Imprimeries - Papeteries</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=plantes aromatiques et medicinales" class="nav-link text-small pb-0 ">plantes aromatiques et medicinales</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=Main d'Œuvre" class="nav-link text-small pb-0">Main d'Œuvre</a></li>
 
 						                      </ul>
 						                    </div>

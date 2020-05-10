@@ -1,4 +1,6 @@
 {% load static %}
+{% block content %}
+
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 	<head>
 		<meta charset="UTF-8">
@@ -247,8 +249,9 @@
 								<div id="navbarSupportedContent" class="collapse navbar-collapse">
 									<ul class="navbar-nav ml-auto">
 									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;">
-									        <input id="search-input" class="form-control item" type="text" placeholder="Search">
+									      <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+
+									        <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
 									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
 									      </form>
 									    </li>
@@ -300,9 +303,11 @@
 
 
 						</style>
-						<button style="padding: 0; margin: 0;" href="#" data-toggle="tooltip" data-placement="left" title="vous aves une question">
+						<a href="https://www.facebook.com/Odco-105758854463657/">
+						<button style="padding: 0; margin: 0;"  data-toggle="tooltip" data-placement="left" title="vous aves une question">
 							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
 						</button>
+						</a>
 
 					</div>
 					<div class="flex-image">
@@ -313,221 +318,148 @@
 					</div>
 
 
-					<div>
-					  </div>
-					  <!--Carousel Wrapper-->
-					  <!--Carousel Wrapper-->
-					  <div class="container-fluid my-4">
+<!------------------------------------------acctualite-------------------------------------------------------->
+<!--big-->
+<br><br>
 
-					    <!--Carousel Wrapper-->
-					    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+<div id="actu" class="carousel slide carousel-multi-item  " data-ride="carousel">
+    <!--Controls-->
+    <div class="controls-top">
+        <a class="carousel-control-prev" style="width:10%;" href="#actu" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" style="width:10%;" href="#actu" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!--/.Controls-->
 
-					      <!--Controls-->
-					      <div class="controls-top">
-							  <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
-							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							    <span class="sr-only">Previous</span>
-							  </a>
-							  <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
-							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-							    <span class="sr-only">Next</span>
-							  </a>
-					      </div>
-					      <!--/.Controls-->
+    <!--Slideshow starts here -->
+    <div class=" carousel-inner  d-none d-md-block d-lg-block" role="listbox">
+        <div class="carousel-item active">
+            <div class="row">
+                {% for i in acct%}
+                <div class="col-md-3 clearfix">
+                    <div class="card mb-2">
+                        <img class="card-img-top" style=" width:auto; height:200px;" src="/images/{{i.media}}"
+                             alt="images/{{i.media}}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{i.titre|truncatechars:15}}</h4>
+                            <p class="card-text">{{i.text|truncatechars:80}}</p>
+							<center><a href="acctuspe/lactu?id={{i.titre}}" class="btn btn-primary">voir plus</a></center>
 
-					      <!--Indicators-->
-		                    <ol class="carousel-indicators">
-					        	<li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-					        	<li data-target="#multi-item-example" data-slide-to="1"></li>
-					        	<li data-target="#multi-item-example" data-slide-to="2"></li>
-		                    </ol>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
 
-					      <!--/.Indicators-->
+                {% endif %}
 
-					      <!--Slides-->
-					      <div class="carousel-inner" role="listbox">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
-					        <!--First slide-->
-					        <div class="carousel-item active">
 
-					          <div class="row">
-					            <div class="col-md-4">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
 
-					                </div>
-					              </div>
-					            </div>
 
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
 
-					                </div>
-					              </div>
-					            </div>
+<!--acctu-->
+<!--small-->
 
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
 
-					                </div>
-					              </div>
-					            </div>
-					          </div>
+<div id="actusmall" class="carousel slide carousel-multi-item  " data-ride="carousel">
+    <!--Controls-->
+    <div class="controls-top " >
+        <a class="carousel-control-prev" style="width:10%;" href="#actusmall" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" style="width:10%;" href="#actusmall" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!--/.Controls-->
 
-					        </div>
-					        <!--/.First slide-->
+    <!--Slideshow starts here -->
+    <div class=" carousel-inner  d-block d-md-none d-xs-none" role="listbox">
+        <div class="carousel-item active">
+            <div class="row">
+                {% for i in acct%}
+                <div class="col-md-3 clearfix  ">
+                    <div class="card mb-2">
+                        <img class="card-img-top" style=" width:auto; height:200px;" src="images/{{i.media}}"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">{{i.titre|truncatechars:15}}</h4>
+                            <p class="card-text">{{i.text|truncatechars:80}}</p>
+							<center><a href="/acctuspe/lactu?id={{i.titre}}" class="btn btn-primary">voir plus</a></center>
 
-					        <!--Second slide-->
-					        <div class="carousel-item">
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:1 and forloop.counter > 0 and not forloop.last %}
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
 
-					          <div class="row">
-					            <div class="col-md-4">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
+                {% endif %}
 
-					                </div>
-					              </div>
-					            </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
 
-					                </div>
-					              </div>
-					            </div>
 
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
-
-					                </div>
-					              </div>
-					            </div>
-					          </div>
-
-					        </div>
-					        <!--/.Second slide-->
-
-					        <!--Third slide-->
-					        <div class="carousel-item">
-
-					          <div class="row">
-					            <div class="col-md-4">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
-
-					                </div>
-					              </div>
-					            </div>
-
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
-
-					                </div>
-					              </div>
-					            </div>
-
-					            <div class="col-md-4 clearfix d-none d-md-block">
-					              <div class="card mb-2">
-					                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
-					                  alt="Card image cap">
-					                <div class="card-body">
-					                  <h4 class="card-title">Card title</h4>
-					                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-					                    card's content.</p>
-					                </div>
-					              </div>
-					            </div>
-					          </div>
-
-					        </div>
-					        <!--/.Third slide-->
-					      </div>
-					      <!--/.Slides-->
-					    </div>
-					    <!--/.Carousel Wrapper-->
-					  </div>
 					  <br/><center><hr style="width: 50%;" /></center><br/>
 					  <center><div><h2>Actualité spécifique ?</h2></br><h3> choisissez un domaine</h3></div></center></br>
 					  <center><div class="row container">
 					    <div class="col-4">
-					      <div id="list-example" class="list-group">
-					        <a class="list-group-item list-group-item-action " href="#list-item-1">Main d'Œuvre	</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-2">Pêche</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-3">Consommation</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-4">Transport</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-4">Commerce de détail</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-4">Exploitation des carrières</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-4">Argan</a>
-					        <a class="list-group-item list-group-item-action" href="#list-item-4">Agriculture</a>
+					      <div id="list-example1" class="list-group">
+							<a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Generale">Generale</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Pêche">Pêche</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Consommation">Consommation</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Transport">Transport</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Commerce de détail">Commerce de détail</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Exploitation des carrières">Exploitation des carrières</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Argan">Argan</a>
+					        <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Agriculture">Agriculture</a>
 
 					      </div>
 					      </div>
 					      <div class="col-4">
-					        <div id="list-example" class="list-group">
-					          <a class="list-group-item list-group-item-action " href="#list-item-1">Mines</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-2">Habitat</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-3">Alphabétisation</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-4">Art et culture</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-4">Commerce électronique</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-4">Denrées alimentaires</a>
-					          <a class="list-group-item list-group-item-action" href="#list-item-4">Forêts</a>
+					        <div id="list-example2" class="list-group">
+					          <a class="list-group-item list-group-item-action " href="acctuspe/?secteur=Mines">Mines</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Habitat">Habitat</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Alphabétisation">Alphabétisation</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Art et culture">Art et culture</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Commerce électronique">Commerce électronique</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Denrées alimentaires">Denrées alimentaires</a>
+					          <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Forêts">Forêts</a>
 
 					        </div>
 					        </div>
 					        <div class="col-4">
-					          <div id="list-example" class="list-group">
-					            <a class="list-group-item list-group-item-action " href="#list-item-1">Artisanat</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-2">Télécommunication</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-3">Tourisme</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-4">Centres de gestion</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-4">Traitement de déchets</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-4">Imprimeries - Papeteries</a>
-					            <a class="list-group-item list-group-item-action" href="#list-item-4">plantes aromatiques et medicinales</a>
+					          <div id="list-example3" class="list-group">
+					            <a class="list-group-item list-group-item-action " href="acctuspe/?secteur=Artisanat">Artisanat</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Télécommunication">Télécommunication</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Tourisme">Tourisme</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Centres de gestion">Centres de gestion</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Traitement de déchets">Traitement de déchets</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=Imprimeries - Papeteries">Imprimeries - Papeteries</a>
+					            <a class="list-group-item list-group-item-action" href="acctuspe/?secteur=plantes aromatiques et medicinales">plantes aromatiques et medicinales</a>
+					        	<a class="list-group-item list-group-item-action " href="acctuspe/?secteur=Main d'Œuvre">Main d'Œuvre</a>
 
 					          </div>
 					        </div>
@@ -559,3 +491,4 @@
 
 	</body>
 </html>
+{% endblock %}

@@ -298,8 +298,9 @@
 								<div id="navbarSupportedContent" class="collapse navbar-collapse">
 									<ul class="navbar-nav ml-auto">
 									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;">
-									        <input id="search-input" class="form-control item" type="text" placeholder="Search">
+									      <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+
+									        <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
 									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
 									      </form>
 									    </li>
@@ -349,9 +350,11 @@
 
 
 						</style>
-						<button style="padding: 0; margin: 0;" href="#" data-toggle="tooltip" data-placement="left" title="vous aves une question">
+						<a href="https://www.facebook.com/Odco-105758854463657/">
+						<button style="padding: 0; margin: 0;"  data-toggle="tooltip" data-placement="left" title="vous aves une question">
 							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
 						</button>
+						</a>
 
 					</div>
 

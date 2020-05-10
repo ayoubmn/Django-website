@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
-from odcoapp.views import Index,IndexAR,Acctu,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assist,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR
+from odcoapp.views import Index,IndexAR,Acctu,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assist,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR,AcctuSpe,Lactu,Search
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -40,6 +40,9 @@ urlpatterns = [
     path(r'faqar', faqAR, name="faqAR"),
     path(r'contact', Contact, name="Contact"),
     path(r'contactar', ContactAR, name="ContactAR"),
+    path(r'acctuspe/', AcctuSpe, name="AcctuSpe"),
+    path(r'acctuspe/lactu', Lactu, name="Lactu"),
+    path(r'search/', Search, name="Search"),
 
 ]
 
