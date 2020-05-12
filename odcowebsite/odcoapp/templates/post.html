@@ -1,26 +1,26 @@
 {% load static %}
-{% block content %}
+{% load pwa %}
 
+{% block content %}
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-	<head>
+<head>
+		{% progressive_web_app_meta %}
 		<meta charset="UTF-8">
-		<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-		<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-		<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+		<link rel="shortcut icon" href="http://www.odco.gov.ma/misc/favicon.ico" type="image/vnd.microsoft.icon">
+		<meta name="Generator" content="Drupal 7 (http://drupal.org)">
 		<title>ODCO-Maroc</title>
 		<link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
 
-		<style>
+    <style>
 		* {
 		  box-sizing: border-box;
 		  margin: 0px;
@@ -274,13 +274,42 @@
 		  border: none;
 		  border-radius: 10px;
 		}
+@media  (max-width: 600px) {
 
-		</style>
-			<script>
+		footer .footer-links {
+		  grid-template-columns: 100px 100px;
+		}
+		#logo{
+			width:80%;
+		}
+		#menu{
+			width:100%;
+		}
+		.sticky-btn {
+			margin-bottom:30px;
+			right: 150px;
+		}
+		.sticky-image{
+			height:65px;
+			width:65px;
+		}
+		.logo-flex{
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+		}
+}
+
+
+
+    </style>
+    <script>
 			  window.console = window.console || function(t) {};
-			</script>
 
-			<script type="text/javascript">
+
+    </script>
+
+    <script type="text/javascript">
 				function myFunction(myDIV) {
 				  var x = document.getElementById(myDIV);
 				  if (x.style.display === "none") {
@@ -292,62 +321,103 @@
 				    x.style.display = "none";
 				  }
 				}
-			</script>
 
-	</head>
 
-	<body translate="no">
+    </script>
 
-					<header style="height:auto;">
-						<nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
-							<div class="container-fluid">
-								<a href="/" ><img src="{% static 'odcoapp/media/logo.png' %}" ></a>
-								<button type="button"  class="navbar-toggle d-lg-none pg-light" data-toggle="collapse" data-target="#navbarSupportedContent" area-hidden="true">
-									<img  src="{% static 'odcoapp/media/menu.png' %}" >
-								</button>
+</head>
 
-								<div id="navbarSupportedContent" class="collapse navbar-collapse">
-									<ul class="navbar-nav ml-auto">
-									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+<body translate="no">
 
-									        <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
-									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
-									      </form>
-									    </li>
-										<li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Acceuil <span class="sr-only">(current)</span></a></li>
-										<li class="nav-item">
-											<a href="acctualite" class="nav-link text-uppercase font-weight-bold">Actualite</a>
-										</li>
 
-										<li class="nav-item">
-											<div class="dropdown">
-											  <button class="btn  dropdown-toggle nav-link text-uppercase font-weight-bold" type="button" data-toggle="dropdown">
-											    Conseil
-											  </button>
-											  <div class="dropdown-menu">
-											    <a class="dropdown-item" href="conseileco">Conseils economique</a>
-											    <a class="dropdown-item" href="conseiljuri">Conseils juridique</a>
-											  </div>
-											</div>
-										</li>
-										<li class="nav-item"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a></li>
+<header style="height:auto;">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
+        <div class="container-fluid">
+            <div class="logo-flex">
+                <div class="item">
+                    <a href="/"><img id="logo" src="{% static 'odcoapp/media/logo.png' %}"></a>
+                </div>
+                <div class="item">
+                    <button type="button" class="navbar-toggle d-lg-none pg-light" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" area-hidden="true">
+                        <img id="menu" src="{% static 'odcoapp/media/menu.png' %}">
+                    </button>
+                </div>
+            </div>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item d-none d-md-block d-lg-block">
+                        <center>
+                            <form class="form-inline" style="margin-right: 40px; margin-left:40px; margin-top:5px;"
+                                  method="get" action="{% url 'Search' %}">
 
-										<li class="nav-item"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
-										<li class="nav-item dropdown">
-				                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-fr"> </span> Français</a>
-				                            <div class="dropdown-menu" aria-labelledby="dropdown09">
-				                                <a class="dropdown-item" href="ar"><span class="flag-icon flag-icon-ae"> </span>  Arabe</a>
-				                            </div>
-				                        </li>
-									</ul>
-								</div>
-							</div>
-						</nav>
-					</header>
+                                <center><input id="objet" name="objet" class="form-control item" type="text"
+                                               placeholder="Search"></center>
+                                <center>
+                                    <button id="search" class="btn btn-outline-success item" type="submit">Search
+                                    </button>
+                                </center>
+                            </form>
+                        </center>
+                    </li>
+                    <li class="nav-item active"><a href="/"
+                                                   class="nav-link text-uppercase text-center font-weight-bold">Acceuil
+                        <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item">
+                        <a href="acctualite" class="nav-link text-uppercase text-center font-weight-bold">Actualite</a>
+                    </li>
 
-					<div class="sticky-btn">
-						<style type="text/css">
+                    <li class="nav-item">
+                        <center>
+                            <div class="dropdown show">
+                                <button class="btn  dropdown-toggle nav-link text-uppercase text-center font-weight-bold"
+                                        type="button" data-toggle="dropdown">
+                                    Conseil
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item text-center" href="conseileco">Conseils economique</a>
+                                    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridique</a>
+                                </div>
+                            </div>
+                        </center>
+                    </li>
+                    <li class="nav-item text-center"><a href="assistance"
+                                                        class="nav-link text-uppercase font-weight-bold">Assistance</a>
+                    </li>
+
+                    <li class="nav-item text-center"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-center" href="http://example.com" id="dropdown09"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                class="flag-icon flag-icon-fr"> </span> Français</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown09">
+                            <a class="dropdown-item text-center" href="ar"><span class="flag-icon flag-icon-ae"> </span>
+                                Arabe</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-block d-md-none d-xs-none">
+                        <center>
+                            <form class="form-inline center"
+                                  style="margin-right: auto; margin-left:auto; margin-top:5px;" method="get"
+                                  action="{% url 'Search' %}">
+
+                                <center><input id="objetsmall" name="objet" class="form-control item" type="text"
+                                               placeholder="Search"></center>
+                                <button id="searchsmall" class="btn btn-outline-success item" type="submit">Search
+                                </button>
+                            </form>
+                        </center>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="sticky-btn">
+    <style type="text/css">
 							.sticky-btn {
 					  		-webkit-filter: drop-shadow(5px 5px 5px #222);
 					  		filter: drop-shadow(5px 5px 5px #222);
@@ -361,158 +431,238 @@
 							}
 
 
-						</style>
-						<a href="https://www.facebook.com/Odco-105758854463657/">
-						<button style="padding: 0; margin: 0;"  data-toggle="tooltip" data-placement="left" title="vous aves une question">
-							<img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
-						</button>
-						</a>
-
-					</div>
-
-					<div class="flex-image">
-						<div class="item" style="flex-basis: 100%;">
-							<img class="first-image" src="{% static 'odcoapp/media/gestion.jpg' %}" style="width: 100%">
-							<p class="welcome-text">POST-CREATION</p>
-						</div>
-					</div>
-
-					<div class="F-C-wrapper">
-						<div class="item bg-light flex-field" >
-							<div class="container-fluid h-100">
-							    <div class="row h-100">
-							        <div class="col-2 collapse d-flex bg-faded pt-2 h-100" id="sidebar">
-							            <ul class="nav nav-pills flex-column">
-							                <li class="nav-item">
-							                	<a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"  data-target="#Generale"><div class="menu">Generale</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Agriculture')" data-target="#Agriculture"><div class="menu">Agriculture</div></a>
-
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Main d Œuvre')" data-target="#Beauté"><div class="menu">Main d'Œuvre</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Artisanat')" data-target="#Artisanat"><div class="menu">Artisanat</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Pêche')" data-target="#Artisanat"><div class="menu">Pêche</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Consommation')" data-target="#Artisanat"><div class="menu">Consommation</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Transport')" data-target="#Beauté"><div class="menu">Transport</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Commerce de détail')" data-target="#Artisanat"><div class="menu">Commerce de détail</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Exploitation des carrières')" data-target="#Artisanat"><div class="menu">Exploitation des carrières</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Argan')" data-target="#Artisanat"><div class="menu">Argan</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('plantes aromatiques et medicinales	')" data-target="#Beauté"><div class="menu">plantes aromatiques et medicinales	</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Mines')" data-target="#Artisanat"><div class="menu">Mines</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Habitat')" data-target="#Artisanat"><div class="menu">Habitat</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Alphabétisation')" data-target="#Artisanat"><div class="menu">Alphabétisation</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Art et culture	')" data-target="#Beauté"><div class="menu">Art et culture	</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Commerce électronique	')" data-target="#Artisanat"><div class="menu">Commerce électronique	</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" onclick="myFunction('Denrées alimentaires	')" data-target="#Artisanat"><div class="menu">Denrées alimentaires	</div></a>
-							                </li>
-							                <li class="nav-item">
-							                    <a class="nav-link collapsed"  data-toggle="collapse" onclick="myFunction('Forêts')" data-target="#Artisanat"><div class="menu">Forêts</div></a>
-							                </li>
-							            </ul>
-							        </div>
-							    </div>
-							</div>
-						</div>
-						<div class="item flex-contenue" >
-							<div class="col pt-2">
-
-							{% for s in sect %}
-								{% if s.name == "Generale" %}
-							    <div id="Generale" >
-								{% else %}
-								<div id="{{s.name}}" style="display: none;">
-								{% endif %}
-							    	<br><center><h2>{{s.name}}</h2></center>
-									<center><hr style="width: 80%;" /></center>
-									<div id="accordion{{s.name}}" >
-									{% for p in post %}
-
-										{% if s.name in p.secteur.name %}
-										  <div class="card">
-											<div class="card-header" id="heading{{p.id}}">
-											  <h5 class="mb-0 text-center">
-												<button class="btn  collapsed " data-toggle="collapse" data-target="#collapse{{p.id}}" aria-expanded="false" aria-controls="collapse{{p.id}}">
-												  {{p.titre}}
-												</button>
-											  </h5>
-											</div>
-											<div id="collapse{{p.id}}" class="collapse" aria-labelledby="heading{{p.id}}" data-parent="#accordion{{s.name}}">
-											  <div class="card-body text-center">
-												  {{p.text}}
-											  </div>
-											</div>
-										  </div>
-										{% endif %}
-									{% endfor %}
-									</div>
-								</div>
-								{% endfor %}
-
-							</div>
-						</div>
-
-					</div>
-
-					</div>
 
 
+    </style>
+    <a href="https://www.facebook.com/Odco-105758854463657/">
+        <button style="padding: 0; margin: 0;" data-toggle="tooltip" data-placement="left"
+                title="vous aves une question">
+            <img class="sticky-image" src="{% static 'odcoapp/media/chat.png' %}">
+        </button>
+    </a>
+</div>
+
+<div class="flex-image">
+    <div class="item" style="flex-basis: 100%;">
+        <img class="first-image" src="{% static 'odcoapp/media/gestion.jpg' %}" style="width: 100%">
+        <p class="welcome-text">POST-CREATION</p>
+    </div>
+</div>
+
+<div class="F-C-wrapper">
+    <div class="item bg-light flex-field">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col-2 collapse d-flex bg-faded pt-2 h-100" id="sidebar">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               data-target="#Generale">
+                                <div class="menu">Generale</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Agriculture')" data-target="#Agriculture">
+                                <div class="menu">Agriculture</div>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Main d Œuvre')" data-target="#Beauté">
+                                <div class="menu">Main d'Œuvre</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Artisanat')" data-target="#Artisanat">
+                                <div class="menu">Artisanat</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Pêche')" data-target="#Artisanat">
+                                <div class="menu">Pêche</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Consommation')" data-target="#Artisanat">
+                                <div class="menu">Consommation</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Transport')" data-target="#Beauté">
+                                <div class="menu">Transport</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Commerce de détail')" data-target="#Artisanat">
+                                <div class="menu">Commerce de détail</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Exploitation des carrières')" data-target="#Artisanat">
+                                <div class="menu">Exploitation des carrières</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Argan')" data-target="#Artisanat">
+                                <div class="menu">Argan</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('plantes aromatiques et medicinales	')" data-target="#Beauté">
+                                <div class="menu">plantes aromatiques et medicinales</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Mines')" data-target="#Artisanat">
+                                <div class="menu">Mines</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Habitat')" data-target="#Artisanat">
+                                <div class="menu">Habitat</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Alphabétisation')" data-target="#Artisanat">
+                                <div class="menu">Alphabétisation</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Art et culture	')" data-target="#Beauté">
+                                <div class="menu">Art et culture</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Commerce électronique	')" data-target="#Artisanat">
+                                <div class="menu">Commerce électronique</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
+                               onclick="myFunction('Denrées alimentaires	')" data-target="#Artisanat">
+                                <div class="menu">Denrées alimentaires</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" data-toggle="collapse" onclick="myFunction('Forêts')"
+                               data-target="#Artisanat">
+                                <div class="menu">Forêts</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item flex-contenue">
+        <div class="col pt-2">
+
+            {% for s in sect %}
+            {% if s.name == "Generale" %}
+            <div id="Generale">
+                {% else %}
+                <div id="{{s.name}}" style="display: none;">
+                    {% endif %}
+                    <br>
+                    <center><h2>{{s.name}}</h2></center>
+                    <center>
+                        <hr style="width: 80%;"/>
+                    </center>
+                    <div id="accordion{{s.name}}">
+                        {% for p in post %}
+
+                        {% if s.name in p.secteur.name %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{p.id}}">
+                                <h5 class="mb-0 text-center">
+                                    <button class="btn  collapsed " data-toggle="collapse"
+                                            data-target="#collapse{{p.id}}" aria-expanded="false"
+                                            aria-controls="collapse{{p.id}}">
+                                        {{p.titre}}
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse{{p.id}}" class="collapse" aria-labelledby="heading{{p.id}}"
+                                 data-parent="#accordion{{s.name}}">
+                                <div class="card-body text-center">
+                                    {{p.text}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
+<br/>
+<center>
+    <hr style="width: 80%;"/>
+</center>
+</body>
+<footer>
+    <div class="social-media">
+        <svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+        </svg><!-- <i class="fab fa-facebook-square"></i> -->
+        <svg class="svg-inline--fa fa-twitter-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="twitter-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+        </svg><!-- <i class="fab fa-twitter-square"></i> -->
+        <svg class="svg-inline--fa fa-youtube-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="youtube-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path>
+        </svg><!-- <i class="fab fa-youtube-square"></i> -->
+        <svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+             data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+        </svg><!-- <i class="fab fa-facebook-square"></i> -->
+    </div>
+    <hr>
+    <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">About us</a>
+        <a href="#">FAQ</a>
+
+    </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
 
-			<br/>
-			<center><hr style="width: 80%;" /></center>
-		</body>
-		<footer>
-				<div class="social-media" >
-				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
-				<svg class="svg-inline--fa fa-twitter-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path></svg><!-- <i class="fab fa-twitter-square"></i> -->
-				<svg class="svg-inline--fa fa-youtube-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path></svg><!-- <i class="fab fa-youtube-square"></i> -->
-				<svg class="svg-inline--fa fa-facebook-square fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg><!-- <i class="fab fa-facebook-square"></i> -->
-				</div>
-				<hr>
-				<div class="footer-links">
-				<a href="#">Home</a>
-				<a href="#">Contact</a>
-				<a href="#">About us</a>
-				<a href="#">FAQ</a>
-
-				</div>
-			</div>
-		</footer>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-
-
-	</body>
+</body>
 </html>
 {% endblock %}

@@ -1,12 +1,13 @@
 {% load static %}
+{% load pwa %}
+
 {% block content %}
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 	<head>
+		{% progressive_web_app_meta %}
 		<meta charset="UTF-8">
-		<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-		<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-		<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+		<link rel="shortcut icon" href="http://www.odco.gov.ma/misc/favicon.ico" type="image/vnd.microsoft.icon">
+		<meta name="Generator" content="Drupal 7 (http://drupal.org)">
 		<title>ODCO-Maroc</title>
 		<link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -488,6 +489,40 @@
 		  border: none;
 		  border-radius: 10px;
 		}
+@media  (max-width: 600px) {
+
+		article .item-wrapper {
+		  grid-column-gap: 20px;
+		}
+		.prog-text{
+			font-size:15px;
+		}
+		footer .footer-links {
+		  grid-template-columns: 100px 100px;
+		}
+		#logo{
+			width:80%;
+		}
+		#menu{
+			width:100%;
+		}
+		.sticky-btn {
+			margin-bottom:30px;
+			right: 150px;
+		}
+		.sticky-image{
+			height:65px;
+			width:65px;
+		}
+		.logo-flex{
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+		}
+		.domaine{
+			margin-left:25%;
+		}
+}
 		</style>
 			<script>
 			  window.console = window.console || function(t) {};
@@ -648,7 +683,7 @@
 										<button type="button" class="btn btn-lg btn-info" data-dismiss="modal">
 											Français</button>
 										<!-- The close button in the bottom of the modal -->
-										<a href="ar"><button type="button" class="btn btn-lg btn-info">العربية</button> </a>
+										<a href="ar" type="button" class="btn btn-lg btn-info">العربية </a>
 										<!-- The save changes button in the bottom of the modal -->
 									</div>
 								</div>
@@ -660,45 +695,57 @@
 					<header style="height:auto;">
 						<nav class="navbar navbar-expand-lg navbar-fixed-top py-3">
 							<div class="container-fluid">
-								<a href="/" ><img src="{% static 'odcoapp/media/logo.png' %}" ></a>
-								<button type="button"  class="navbar-toggle d-lg-none pg-light" data-toggle="collapse" data-target="#navbarSupportedContent" area-hidden="true">
-									<img  src="{% static 'odcoapp/media/menu.png' %}" >
-								</button>
-
+								<div class="logo-flex">
+									<div class="item">
+										<a href="/" ><img id="logo" src="{% static 'odcoapp/media/logo.png' %}" ></a>
+									</div>
+									<div class="item">
+										<button type="button"  class="navbar-toggle d-lg-none pg-light" data-toggle="collapse" data-target="#navbarSupportedContent" area-hidden="true">
+											<img  id="menu" src="{% static 'odcoapp/media/menu.png' %}" >
+										</button>
+									</div>
+								</div>
 								<div id="navbarSupportedContent" class="collapse navbar-collapse">
 									<ul class="navbar-nav ml-auto">
-									    <li class="nav-item">
-									      <form class="form-inline" style="margin-right: 100px;" method="get" action="{% url 'Search' %}">
+									    <li class="nav-item d-none d-md-block d-lg-block">
+									      <center><form class="form-inline" style="margin-right: 40px; margin-left:40px; margin-top:5px;" method="get" action="{% url 'Search' %}">
 
-									        <input id="objet" name="objet" class="form-control item" type="text" placeholder="Search">
-									        <button id="search" class="btn btn-outline-success item" type="submit">Search</button>
-									      </form>
+											  <center><input id="objet" name="objet" class="form-control item" type="text" placeholder="Search"></center>
+											  <center><button id="search" class="btn btn-outline-success item" type="submit">Search</button></center>
+										  </form></center>
 									    </li>
-										<li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Acceuil <span class="sr-only">(current)</span></a></li>
+										<li class="nav-item active"><a href="/" class="nav-link text-uppercase text-center font-weight-bold">Acceuil <span class="sr-only">(current)</span></a></li>
 										<li class="nav-item">
-											<a href="acctualite" class="nav-link text-uppercase font-weight-bold">Actualite</a>
+											<a href="acctualite" class="nav-link text-uppercase text-center font-weight-bold">Actualite</a>
 										</li>
 
 										<li class="nav-item">
-											<div class="dropdown">
-											  <button class="btn  dropdown-toggle nav-link text-uppercase font-weight-bold" type="button" data-toggle="dropdown">
+											<center><div class="dropdown show">
+											  <button class="btn  dropdown-toggle nav-link text-uppercase text-center font-weight-bold" type="button" data-toggle="dropdown">
 											    Conseil
 											  </button>
 											  <div class="dropdown-menu">
-											    <a class="dropdown-item" href="conseileco">Conseils economique</a>
-											    <a class="dropdown-item" href="conseiljuri">Conseils juridique</a>
+											    <a class="dropdown-item text-center" href="conseileco">Conseils economique</a>
+											    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridique</a>
 											  </div>
-											</div>
+											</div></center>
 										</li>
-										<li class="nav-item"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a></li>
+										<li class="nav-item text-center"><a href="assistance" class="nav-link text-uppercase font-weight-bold">Assistance</a></li>
 
-										<li class="nav-item"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+										<li class="nav-item text-center"><a href="contact" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
 										<li class="nav-item dropdown">
-				                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-fr"> </span> Français</a>
+				                            <a class="nav-link dropdown-toggle text-center" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-fr"> </span> Français</a>
 				                            <div class="dropdown-menu" aria-labelledby="dropdown09">
-				                                <a class="dropdown-item" href="ar"><span class="flag-icon flag-icon-ae"> </span>  Arabe</a>
+				                                <a class="dropdown-item text-center" href="ar"><span class="flag-icon flag-icon-ae"> </span>  Arabe</a>
 				                            </div>
 				                        </li>
+									    <li class="nav-item d-block d-md-none d-xs-none">
+									      <center><form class="form-inline center" style="margin-right: auto; margin-left:auto; margin-top:5px;" method="get" action="{% url 'Search' %}">
+
+											  <center><input id="objetsmall" name="objet" class="form-control item" type="text" placeholder="Search"></center>
+											  <button id="searchsmall" class="btn btn-outline-success item" type="submit">Search</button>
+										  </form></center>
+									    </li>
 									</ul>
 								</div>
 							</div>
@@ -720,7 +767,6 @@
 							.sticky-image{
 							border-radius: 50% !important;
 							}
-
 
 						</style>
 						<a href="https://www.facebook.com/Odco-105758854463657/">
@@ -790,14 +836,14 @@
 						        <div class="counter">
 							        <i class="fa fa-people-carry fa-2x"></i>
 							        <h2 class="timer count-title count-number" data-to="27000" data-speed="4000"></h2>
-							        <p class="count-text ">Cooperative</p>
+							        <p class="count-text ">Cooperatives</p>
 							    </div>
 							</div>
 							<div class="col">
 							    <div class="counter">
 							        <i class="fa fa-user-friends fa-2x"></i>
 							        <h2 class="timer count-title count-number" data-to="99999" data-speed="4000"></h2>
-							        <p class="count-text ">Perssonne</p>
+							        <p class="count-text ">Personnes</p>
 							    </div>
 							</div>
 
@@ -823,19 +869,20 @@
 
 			<div class="A-P-wrapper">
 				<!--calendar-->
-				<div class=" item acct-cadre">
+				<div class=" item acct-cadre ">
 					<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 					<center><h2 style="color:#b97129; font-family:Georgia; font-size: 30pt;">PROGRAMME</h2></center>
-						<div class="container" style="min-width: 500px;">
+					<br>
+						<div class="container" >
 						{% for p in prog %}
-							<div class="row" >
-								<div class=" text-right col-2 prog-elem" style="float: right;">
-									<h1 class="display-4"><span class="badge badge-secondary">{{ p.date|date:"j" }}</span></h1>
-									<h2>{{ p.date|date:"b" }}</h2>
+							<div class="row" style="display:flex; flex-direction:row; flex-wrap:nowrap; " >
+								<div class="  item " style="flex-basis:10%;" >
+									<center><h2 class="display-4"><span class="badge badge-secondary">{{ p.date|date:"j" }}</span></h2></center>
+										<center><h2>{{ p.date|date:"b" }}</h2></center>
 
 								</div>
-								<div class="prog-text">
-									<h4 class="text-uppercase">{{p.titre|truncatechars:60}}</h4>
+								<div class="prog-text item" style="flex-basis:80%;">
+									<h4 class="text-uppercase prog-text text-center">{{p.titre|truncatechars:60}}</h4>
 								</div>
 							</div>
 							{% endfor %}
@@ -888,10 +935,12 @@
 					<div class="item domaine-cadre ">
 
 						<center>
-						<div style="width: 80%">
+						<div class="domaine">
 							<br>
 							<center><h2>cherchez vous quelque chose spécifique <br><b> veuillez choisir votre domaine</b></h2></center>
-							<div class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Domaines</a>
+
+							<div class="nav-item dropdown megamenu">
+								<center><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Domaines</a>
 						        <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
 						          <div class="container bg-white">
 						          			<br/>
@@ -901,7 +950,7 @@
 									  </center>
 									  <br/>
 						                  <div class="row " >
-						                    <div class="col-lg-3 mb-4">
+						                    <div class="col-lg-4 mb-4">
 						                      <ul class="list-unstyled">
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Generale" class="nav-link text-small pb-0">Generale</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Pêche" class="nav-link text-small pb-0">Pêche</a></li>
@@ -913,7 +962,7 @@
 
 						                      </ul>
 						                    </div>
-						                    <div class="col-lg-3 mb-4">
+						                    <div class="col-lg-4 mb-4">
 						                      <ul class="list-unstyled">
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Agriculture" class="nav-link text-small pb-0">Agriculture</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Mines" class="nav-link text-small pb-0 ">Mines</a></li>
@@ -924,7 +973,7 @@
 
 						                      </ul>
 						                    </div>
-						                    <div class="col-lg-3 mb-4">
+						                    <div class="col-lg-4 mb-4">
 						                      <ul class="list-unstyled">
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Denrées alimentaires" class="nav-link text-small pb-0">Denrées alimentaires</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Forêts" class="nav-link text-small pb-0 ">Forêts</a></li>
@@ -935,7 +984,7 @@
 
 						                      </ul>
 						                    </div>
-						                    <div class="col-lg-3 mb-4">
+						                    <div class="col-lg-4 mb-4">
 						                      <ul class="list-unstyled">
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Traitement de déchets" class="nav-link text-small pb-0">Traitement de déchets</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Imprimeries - Papeteries" class="nav-link text-small pb-0 ">Imprimeries - Papeteries</a></li>

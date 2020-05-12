@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from odcoapp.models import Video,Photo,Audio,Doc,Acctualite,Secteur,Type,pre_post,Assistance,Programme
+import json
+
+from .models import Video,Photo,Audio,Doc,Acctualite,Secteur,Type,pre_post,Assistance,Programme
 from django import forms
 # Create your views here.
 def Index(request):
@@ -8,17 +10,10 @@ def Index(request):
     prog = Programme.objects.all()[:3]
     acct = Acctualite.objects.all()[:3]
 
-
-
-
-
     return render(request,'index.html', {"img": img, "prog": prog, "acct": acct})
 def IndexAR(request):
     return render(request,'indexAR.html')
 def Acctu(request):
-
-
-
 
     acct = Acctualite.objects.all()
     return render(request,'acctualite.html',{"acct":acct})
