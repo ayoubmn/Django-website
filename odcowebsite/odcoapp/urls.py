@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import Index,IndexAR,Acctu,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assist,AssistanceAR,Pre,PreAR,Post,PostAR,faq,faqAR,Contact,ContactAR,AcctuSpe,Lactu,Search
+from .views import Index,IndexAR,Acctu,AcctualiteAR,ConseilEco,ConseilEcoAR,ConseilJuri,ConseilJuriAR,Assist,AssistanceAR,Pre,PreAR,Post,PostAR,Faq,faqAR,Contact,ContactAR,AcctuSpe,AcctuSpeAR,Lactu,LactuAR,Search
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -36,12 +36,14 @@ urlpatterns = [
     path(r'prear', PreAR, name="PreAR"),
     path(r'post', Post, name="Post"),
     path(r'postar', PostAR, name="PostAR"),
-    path(r'faq', faq, name="faq"),
+    path(r'faq', Faq, name="faq"),
     path(r'faqar', faqAR, name="faqAR"),
     path(r'contact', Contact, name="Contact"),
     path(r'contactar', ContactAR, name="ContactAR"),
     path(r'acctuspe/', AcctuSpe, name="AcctuSpe"),
+    path(r'acctuspear/', AcctuSpeAR, name="AcctuSpeAR"),
     path(r'acctuspe/lactu', Lactu, name="Lactu"),
+    path(r'acctuspear/lactuAR', LactuAR, name="LactuAR"),
     path(r'search/', Search, name="Search"),
 
 ]

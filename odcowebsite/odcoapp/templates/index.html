@@ -175,10 +175,10 @@
 			left:auto;
 		}
 		.hero-welcome{
-			flex-basis: 25%;
+			flex-basis: 35%;
 		}
 		.hero-col{
-			flex-basis: 75%;
+			flex-basis: 65%;
 			background-color: black;
 		}
 
@@ -788,6 +788,7 @@
 
 						</div>
 						<div class="item hero-welcome ">
+							<center><div style="width:90%;">
 							<center><img id="maroc" src="{% static 'odcoapp/media/maroc.png' %}"  ></center>
 							<br>
 							<center><div class="card" style="width: auto;">
@@ -799,11 +800,12 @@
 									{% for a in acct %}
 								  <a href="acctuspe/lactu?id={{a.titre}}" class="list-group-item list-group-item-action flex-column align-items-start ">
 								    <div class="d-flex w-100 justify-content-between">
-								      <h5 class="mb-1">{{a.titre|truncatechars:50}}</h5>
+								      <h5 class="mb-1">{{a.titre|truncatechars:80}}</h5>
 								    </div>
 								  </a>
 									{% endfor %}
 								</div>
+							</div></center>
 							</div></center>
 						</div>
 
@@ -1044,58 +1046,91 @@
 					<center>
 		            <div class="row video">
 		                <div class="col-md-12">
-		                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+							<div id="video" class="carousel slide carousel-multi-item  " data-ride="carousel">
 
-		                        <ol class="carousel-indicators">
-		                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-		                            <li data-target="#blogCarousel" data-slide-to="1"></li>
-		                        </ol>
+								<!--Controls-->
+								<div class="controls-top d-none d-md-block d-lg-block">
+									<a class="carousel-control-prev" style="width:10%;" href="#video" role="button" data-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" style="width:10%;" href="#video" role="button" data-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+								<!--/.Controls-->
 
-		                        <!-- Carousel items -->
-		                        <div class="carousel-inner">
+								<!--Slideshow starts here -->
+								<div class=" carousel-inner  d-none d-md-block d-lg-block" role="listbox">
+									<div class="carousel-item active">
+										<div class="row">
+											{% for i in video%}
+											<div class="col-md-4 clearfix  ">
+													<iframe width="330" height="300" src="{{i.url}}" frameborder="0"
+															allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+															allowfullscreen></iframe>
+											</div>
+											{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
 
-		                            <div class="carousel-item active">
-		                                <div class="row">
-		                                    <div class="col-md-4">
+											{% endif %}
 
-                                                <iframe width="330" height="300" src="https://www.youtube.com/embed/ZC3pgKzOiMw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</div>
 
-                                                </iframe>
-		                                    </div>
-		                                    <div class="col-md-4">
-                                            	<iframe width="330" height="300" src="https://www.youtube.com/embed/jQI90lBVqJQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                                    </div>
-		                                    <div class="col-md-4">
-												<iframe width="330" height="300" src="https://www.youtube.com/embed/JaRupj8433E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                                    </div>
 
-		                                </div>
-		                                <!--.row-->
-		                            </div>
-		                            <!--.item-->
+							<!--video-->
+							<!--small-->
 
-		                            <div class="carousel-item">
-		                                <div class="row">
-		                                    <div class="col-md-4">
-												<iframe width="330" height="300" src="https://www.youtube.com/embed/mGRse8MrzSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                                    </div>
-		                                    <div class="col-md-4">
-												<iframe width="330" height="300" src="https://www.youtube.com/embed/Bj_rOV7dO9w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                                    </div>
-		                                    <div class="col-md-4">
-												<iframe width="330" height="300" src="https://www.youtube.com/embed/PokTRlm_DKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                                    </div>
-		                                </div>
-		                                <!--.row-->
-		                            </div>
-		                            <!--.item-->
-		                        </div>
-		                        <!--.carousel-inner-->
-		                    </div>
-		                    <!--.Carousel-->
+
+							<div id="videosmall" class="carousel slide carousel-multi-item  " data-ride="carousel">
+								<!--Controls-->
+								<div class="controls-top d-block d-md-none d-xs-none">
+									<a class="carousel-control-prev" style="width:10%;" href="#vidoesmall" role="button" data-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" style="width:10%;" href="#videosmall" role="button" data-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+								<!--/.Controls-->
+
+								<!--Slideshow starts here -->
+								<div class=" carousel-inner  d-block d-md-none d-xs-none" role="listbox">
+									<div class="carousel-item active">
+										<div class="row">
+											{% for i in video%}
+											<div class="col-md-3 clearfix  ">
+													<iframe width="330" height="300" src="{{i.url}}" frameborder="0"
+															allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+															allowfullscreen></iframe>
+											</div>
+											{% if forloop.counter|divisibleby:1 and forloop.counter > 0 and not forloop.last %}
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+
+											{% endif %}
+
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</div>
+
 		                </div>
-		            </div>
-		        </center>
+			        </center>
+
 				</div>
 			</div>
 			<br/>

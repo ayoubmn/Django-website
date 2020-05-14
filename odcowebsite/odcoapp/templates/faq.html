@@ -4,19 +4,18 @@
 {% block content %}
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 <head>
-		{% progressive_web_app_meta %}
-		<meta charset="UTF-8">
-		<link rel="shortcut icon" href="http://www.odco.gov.ma/misc/favicon.ico" type="image/vnd.microsoft.icon">
-		<meta name="Generator" content="Drupal 7 (http://drupal.org)">
-		<title>ODCO-Maroc</title>
-		<link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    {% progressive_web_app_meta %}
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="http://www.odco.gov.ma/misc/favicon.ico" type="image/vnd.microsoft.icon">
+    <meta name="Generator" content="Drupal 7 (http://drupal.org)">
+    <title>ODCO-Maroc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <style>
@@ -200,6 +199,7 @@
 
 		}
 		.flex-image{
+			position: relative;
 			display: flex;
 		}
 		button {
@@ -236,9 +236,11 @@
 		}
 }
 
+
     </style>
     <script>
 			  window.console = window.console || function(t) {};
+
 
     </script>
 
@@ -348,6 +350,7 @@
 							}
 
 
+
     </style>
     <a href="https://www.facebook.com/Odco-105758854463657/">
         <button style="padding: 0; margin: 0;" data-toggle="tooltip" data-placement="left"
@@ -367,95 +370,22 @@
 
 
 <div class="accordion container" id="accordionExample" style="margin-top:  20px;">
+    {% for f in faq %}
     <div class="card z-depth-0 bordered">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0 text-right">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
-                    ما هي النصوص القانونية المنظمة للقطاع التعاوني بالمغرب
+                        aria-expanded="true" aria-controls="collapseOne">{{f.question}}
                 </button>
             </h5>
         </div>
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
              data-parent="#accordionExample">
-            <div class="card-body text-right">
-                تخضع التعاونيات للقانون رقم 112.12 المتعلق بالتعاونيات كما تم تغييره وكذا لأحكام المرسوم رقم 2.15.617
-                صادر في 24 مارس 2016 بتحديد قواعد تنظيم وتسيير سجل التعاونيات ولقرار وزير العدل والحريات رقم 1369.16
-                الصادر في 9 ماي 2016 بتحديد شكل ومضمون السجل المحلي للتعاونيات ونماذج استمارات طلب التسجيل والتقييد
-                المعدل والتشطيب وكذا نموذج من شهادة ومستخرج من السجل المذكور
-            </div>
+            <div class="card-body text-right">{{f.reponse}}</div>
         </div>
     </div>
-    <div class="card z-depth-0 bordered">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0 text-right">
-                <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    ما هو تعريف التعاونية
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body text-right">
-                مقاولة مستقلة محدثة بين أشخاص ذاتيين و/أو اعتباريين أو هما معا اتفقوا بشكل إرادي على تسويق منتوجاتهم أو
-                خدماتهم بشكل جماعي أو الحصول على خدمات أو شغل عبر تسخير إمكانياتهم المادية و التقنية، ويتم تسييرها وفق
-                القانون و المبادئ التعاونية.
-            </div>
-        </div>
-    </div>
-    <div class="card z-depth-0 bordered">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0 text-right">
-                <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    ما هي المبادئ التعاونية
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body text-right">
-                المبادئ التعاونية هي مبادئ عالمية يبلغ عددها سبعة وقد تبناها القانون رقم 112.12 ويتعلق الأمر ب:1) (الباب
-                المفتوح) ، 2) التسيير الديمقراطي ، 3)الاستقلال الذاتي، 4) المساهمة الاقتصادية للأعضاء، 5) التكوين
-                والتدريب ، 6) التعاون بين التعاونيات ، 7) الالتزام نحو المجتمع
-            </div>
-        </div>
-    </div>
-    <div class="card z-depth-0 bordered">
-        <div class="card-header" id="heading4">
-            <h5 class="mb-0 text-right">
-                <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
-                        data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">ما هي أهداف التعاونية
-                </button>
-            </h5>
-        </div>
-        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
-            <div class="card-body text-right">
-                أهداف التعاونية متعددة وتتميز عن تلك المتعلقة بالشركات والجمعيات، وهي أهداف اقتصادية، اجتماعية، تربوية،
-                ثقافية و بيئية
-            </div>
-        </div>
-    </div>
-    <div class="card z-depth-0 bordered">
-        <div class="card-header" id="heading5">
-            <h5 class="mb-0 text-right">
-                <button class="btn btn-link collapsed text-right" type="button" data-toggle="collapse"
-                        data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                    ما هي شروط الانضمام إلى تعاونية
-                </button>
-            </h5>
-        </div>
-        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
-            <div class="card-body text-right">
-                الانضمام إلى التعاونية يقتضي ممارسة نشاط يدخل في مجال التعاونية (باستثناء التعاونيات السكنية التي يتعين
-                عدم امتلاك العضو لسكن ملائم بالدائرة الترابية للتعاونية، وكذا تعاونيات الاستهلاك التي لا يتطلب الانضمام
-                إليها ممارسة نشاط معين)
-                مع ملاحظة مهمة أن الانضمام إلى تعاونية لا يعني التكامل (تعاونية تحتاج إلى محاسب إلى كاتبة إلى حارس...لا
-                يمكن أن تتكون التعاونية فيما بينهم بل يتعين على التعاونية توظيفهم) والمطلوب في التعاونية "التماثل" أي
-                ممارسة نفس النشاط
+    {% endfor %}
 
-            </div>
-        </div>
-    </div>
 </div>
 
 
@@ -506,3 +436,4 @@
 
 </body>
 </html>
+{% endblock %}

@@ -369,13 +369,16 @@
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contacter nous</h2>
         <!--Section description-->
         <p class="text-center w-responsive mx-auto mb-5">Vous avez d'autre questions qui n'est pas été traitter dans
-            notre <a href="faq">FAQ</a> ou difficille pour notre CHATBOT ? <br> n'hésiter pas de nous contacter
+            notre <a href="/faq">FAQ</a> ou difficille pour notre CHATBOT ? <br> n'hésiter pas de nous contacter
             directement </p>
 
         <div class="row">
 
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
+                <div class="alert alert-warning" role="alert">
+                  <strong>Attention!</strong> vous avez le droit qu'a 3 message chaque 2 heures .
+                </div>
                 <form method="post">
                     {% csrf_token %}
                     <!--Grid row-->
@@ -476,81 +479,13 @@
             </tr>
             </thead>
             <tbody>
+            {% for a in adresse %}
             <tr>
-                <th>Beni Mellal</th>
-                <td>05.23.42.04.31</td>
-                <td>Avenue chabi wlad hamdan C.P:60 1750</td>
+                <th>{{a.delegation}}</th>
+                <td>{{a.telephone}}</td>
+                <td>{{a.adresse}}</td>
             </tr>
-            <tr>
-                <th>Agadir</th>
-                <td>05.28.23.33.97</td>
-                <td>Avenue hassan I imm amal souss C.P:532</td>
-            </tr>
-            <tr>
-                <th>al Hoceima</th>
-                <td>05.39.84.14.75</td>
-                <td>Avenue al andalos C.P:3259</td>
-            </tr>
-            <tr>
-                <th>Casablanca</th>
-                <td>05-22-30-44-36</td>
-                <td>N°45 Rue ELHABACHA 2ème étage app 3 BP 1066, Casablanca, Maroc</td>
-            </tr>
-            <tr>
-                <th>Eddakhla</th>
-                <td>05-28-93-29-83</td>
-                <td>Imm Al Khair 2ème Etage Quartier Mly Rachid, Ed-Dakhla, Maroc</td>
-            </tr>
-            <tr>
-                <th>Fès</th>
-                <td>05.35.65.43.62</td>
-                <td>Avenue Zerktouni, fes al atlas C.P:60 2039</td>
-            </tr>
-            <tr>
-                <th>Guelmim</th>
-                <td>05.28.87.30.38</td>
-                <td>Quartier Al Qods N°:840 C.P:415</td>
-            </tr>
-            <tr>
-                <th>Kénitra</th>
-                <td>05.37.37.56.31</td>
-                <td>Angle avenue Med diouri et rue alyarmouk imm "S" N°:9, C.P:249</td>
-            </tr>
-            <tr>
-                <th>Laayoune</th>
-                <td>05.28.89.29.48</td>
-                <td>Lotissement Mly rachid route semara C.P:493</td>
-            </tr>
-            <tr>
-                <th>Marrakech</th>
-                <td>05.24.43.77.88</td>
-                <td>Avenue yougoslavie N°:82 imm malak C.P:60 2209</td>
-            </tr>
-            <tr>
-                <th>Meknès</th>
-                <td>05.35.51.49.80</td>
-                <td>Rue Anticirapi Etage:1 N°:1 C.P:6332</td>
-            </tr>
-            <tr>
-                <th>Oujda</th>
-                <td>05.36.68.17.04</td>
-                <td>Avenue Med V imm albourssa Etage:3 N°:5 C.P:49</td>
-            </tr>
-            <tr>
-                <th>Safi</th>
-                <td>05.24.62.10.95</td>
-                <td>Lotissement Bouzoubea Avenue Ibn Zeydoun Etage:3 N°:6 Nouvelle ville C.P:366</td>
-            </tr>
-            <tr>
-                <th>Settat</th>
-                <td>05.23.40.51.45</td>
-                <td>Avenue hassan II, imm 20,Etage:2, N°:6, C.P:813</td>
-            </tr>
-            <tr>
-                <th>Tanger</th>
-                <td>05.39.94.67.85</td>
-                <td>Avenue Youssef ben tachfin imm al frayji C.P:1134</td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
 
