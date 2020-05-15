@@ -2,7 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 import json
 from .forms import Cont
-
+from django.core.mail import send_mail
+from odcowebsite.settings import EMAIL_HOST_USER
 from .models import Video,faq, Photo, Audio, Doc, Acctualite, Secteur, Type, pre_post, Assistance, Programme,adresses
 from django import forms
 
@@ -121,10 +122,9 @@ def ContactAR(request):
         form = Cont(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            num = request.session['numberOfSubmits']
             canPost = False
             # if this is the first time the client will post smth
-            if not num:
+            if 'numberOfSubmits' not in request.session:
                 # set session to expire after 2 hours
                 request.session.set_expiry(7200)
                 request.session['numberOfSubmits'] = 1
@@ -138,7 +138,7 @@ def ContactAR(request):
                 request.session['numberOfSubmits'] = 1
 
                 # if client didnt reach maximum amount of submits (3 each 2 hours for our case)
-            elif request.session['numberOfSubmits'] <= 3:
+            elif request.session['numberOfSubmits'] < 3:
                 request.session['numberOfSubmits'] += 1
                 canPost = True
 
@@ -151,7 +151,7 @@ def ContactAR(request):
                 msg = form.cleaned_data['msg']
                 form.save()
 
-                return HttpResponseRedirect('/contact')
+                return HttpResponseRedirect('/contactar')
 
             # else should send a message to the client to inform him that he must wait
 
@@ -169,10 +169,9 @@ def Contact(request):
         form = Cont(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            num = request.session['numberOfSubmits']
             canPost = False
             # if this is the first time the client will post smth
-            if not num:
+            if 'numberOfSubmits' not in request.session:
                 # set session to expire after 2 hours
                 request.session.set_expiry(7200)
                 request.session['numberOfSubmits'] = 1
@@ -186,12 +185,10 @@ def Contact(request):
                 request.session['numberOfSubmits'] = 1
 
                 # if client didnt reach maximum amount of submits (3 each 2 hours for our case)
-            elif request.session['numberOfSubmits'] <= 100:
+            elif request.session['numberOfSubmits'] < 3:
                 request.session['numberOfSubmits'] += 1
                 canPost = True
 
-            else:
-                canPost = True
             # else the client cant submit
 
             if canPost:
@@ -200,6 +197,8 @@ def Contact(request):
                 sujet = form.cleaned_data['sujet']
                 msg = form.cleaned_data['msg']
                 form.save()
+                send_mail(sujet,msg, EMAIL_HOST_USER,[str(email)], fail_silently=False)
+
                 return HttpResponseRedirect('/contact')
 
             # else should send a message to the client to inform him that he must wait
@@ -243,3 +242,4 @@ def LactuAR(request):
 def Search(request):
     acct = Acctualite.objects.filter(titre__contains=request.GET.get('objet', 'a'))
     return render(request, 'search.html', {"acct": acct})
+

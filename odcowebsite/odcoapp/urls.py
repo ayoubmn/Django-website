@@ -46,6 +46,7 @@ urlpatterns = [
     path(r'acctuspear/lactuAR', LactuAR, name="LactuAR"),
     path(r'search/', Search, name="Search"),
 
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
