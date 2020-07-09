@@ -21,7 +21,7 @@ def faqAR(request):
 
 def Index(request):
     img = Photo.objects.all()[:4]
-    prog = Programme.objects.all()[:3]
+    prog = Programme.objects.filter(langue="fr")[:3]
     acct = Acctualite.objects.filter(langue="fr")[:3]
     video = Video.objects.all()[:6]
     return render(request, 'index.html', {"img": img, "prog": prog, "acct": acct, "video": video})
@@ -29,7 +29,7 @@ def Index(request):
 
 def IndexAR(request):
     img = Photo.objects.all()[:4]
-    prog = Programme.objects.all()[:3]
+    prog = Programme.objects.filter(langue="ar")[:3]
     acct = Acctualite.objects.filter(langue="ar")[:3]
     video = Video.objects.all()[:6]
     return render(request, 'indexAR.html', {"img": img, "prog": prog, "acct": acct, "video": video})
@@ -45,25 +45,25 @@ def AcctualiteAR(request):
     return render(request, 'acctualiteAR.html', {"acct": acct})
 
 def ConseilEco(request):
-    video = Video.objects.filter(type__namefr="economique")
+    video = Video.objects.filter(type__namefr="economique", langue="fr")
     doc = Doc.objects.filter(type__namefr="economique")
     return render(request, 'conseileco.html', {"video": video, "doc": doc})
 
 
 def ConseilEcoAR(request):
-    video = Video.objects.filter(type__namefr="economique")
+    video = Video.objects.filter(type__namefr="economique", langue="ar")
     doc = Doc.objects.filter(type__namefr="economique")
     return render(request, 'conseilecoAR.html', {"video": video, "doc": doc})
 
 
 def ConseilJuri(request):
-    video = Video.objects.filter(type__namefr="juridique")
+    video = Video.objects.filter(type__namefr="juridique", langue="fr")
     doc = Doc.objects.filter(type__namefr="juridique")
     return render(request, 'conseiljuri.html', {"video": video, "doc": doc})
 
 
 def ConseilJuriAR(request):
-    video = Video.objects.filter(type__namefr="juridique")
+    video = Video.objects.filter(type__namefr="juridique", langue="ar")
     doc = Doc.objects.filter(type__namefr="juridique")
     return render(request, 'conseiljuriAR.html', {"video": video, "doc": doc})
 
@@ -78,7 +78,7 @@ def AssistanceAR(request):
 
 def Pre(request):
     video = Video.objects.filter(pre_post__namefr="pre_creation")
-    pre = Assistance.objects.filter(pre_post__namefr="pre_creation")
+    pre = Assistance.objects.filter(pre_post__namefr="pre_creation", langue="fr")
     sect = Secteur.objects.all()
     doc = Doc.objects.filter(pre_post__namefr="pre_creation")
     audio = Audio.objects.filter(pre_post__namefr="pre_creation",langue="fr")
@@ -87,7 +87,7 @@ def Pre(request):
 
 def PreAR(request):
     video = Video.objects.filter(pre_post__namefr="pre_creation")
-    pre = Assistance.objects.filter(pre_post__namefr="pre_creation")
+    pre = Assistance.objects.filter(pre_post__namefr="pre_creation", langue="ar")
     sect = Secteur.objects.all()
     doc = Doc.objects.filter(pre_post__namefr="pre_creation")
     audio = Audio.objects.filter(pre_post__namefr="pre_creation",langue="ar")
@@ -97,7 +97,7 @@ def PreAR(request):
 
 def Post(request):
     video = Video.objects.filter(pre_post__namefr="post_creation")
-    post = Assistance.objects.filter(pre_post__namefr="post_creation")
+    post = Assistance.objects.filter(pre_post__namefr="post_creation", langue="fr")
     sect = Secteur.objects.all()
     doc = Doc.objects.filter(pre_post__namefr="post_creation")
     audio = Audio.objects.filter(pre_post__namefr="post_creation", langue="fr")
@@ -107,7 +107,7 @@ def Post(request):
 
 def PostAR(request):
     video = Video.objects.filter(pre_post__namefr="post_creation")
-    post = Assistance.objects.filter(pre_post__namefr="post_creation")
+    post = Assistance.objects.filter(pre_post__namefr="post_creation", langue="ar")
     sect = Secteur.objects.all()
     doc = Doc.objects.filter(pre_post__namefr="post_creation")
     audio = Audio.objects.filter(pre_post__namefr="post_creation", langue="ar")
@@ -150,6 +150,7 @@ def ContactAR(request):
                 sujet = form.cleaned_data['sujet']
                 msg = form.cleaned_data['msg']
                 form.save()
+                send_mail(sujet,email+" "+msg, EMAIL_HOST_USER,[EMAIL_HOST_USER], fail_silently=False)
 
                 return HttpResponseRedirect('/contactar')
 
@@ -197,7 +198,7 @@ def Contact(request):
                 sujet = form.cleaned_data['sujet']
                 msg = form.cleaned_data['msg']
                 form.save()
-                send_mail(sujet,msg, EMAIL_HOST_USER,[str(email)], fail_silently=False)
+                send_mail(sujet,email+" "+msg, EMAIL_HOST_USER,[EMAIL_HOST_USER], fail_silently=False)
 
                 return HttpResponseRedirect('/contact')
 
@@ -209,22 +210,23 @@ def Contact(request):
     adresse = adresses.objects.filter(langue="fr")
     return render(request, 'contact.html', {'form': form, "adresse":adresse})
 
+from django.db.models import Q
 
 def AcctuSpe(request):
-    acct = Acctualite.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="fr")
-    photo = Photo.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'))
-    video = Video.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'))
-    doc = Doc.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="fr")
-    audio = Audio.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="fr")
+    acct = Acctualite.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="fr")
+    photo = Photo.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'))
+    video = Video.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'))
+    doc = Doc.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="fr")
+    audio = Audio.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="fr")
     return render(request, 'acctuspe.html', {"acct": acct, "photo": photo, "video": video, "doc": doc, "audio":audio})
 
 
 def AcctuSpeAR(request):
-    acct = Acctualite.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="ar")
-    photo = Photo.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'))
-    video = Video.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'))
-    doc = Doc.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="ar")
-    audio = Audio.objects.filter(secteur__namefr=request.GET.get('secteur', 'Generale'),langue="ar")
+    acct = Acctualite.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="ar")
+    photo = Photo.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'))
+    video = Video.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'))
+    doc = Doc.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="ar")
+    audio = Audio.objects.filter(Q(secteur__namefr=request.GET.get('secteur', 'Generale'))|Q(secteur__namefr='Generale'),langue="ar")
     return render(request, 'acctuspeAR.html', {"acct": acct, "photo": photo, "video": video, "doc": doc, "audio":audio})
 
 

@@ -19,7 +19,6 @@
 
 
 
-
 		<style>
 		* {
 		  box-sizing: border-box;
@@ -645,7 +644,9 @@
 			    });
 			</script>
 
-
+            <script>
+                    Accept-Ranges: bytes
+            </script>
 
 
 	</head>
@@ -725,8 +726,8 @@
 											    Conseil
 											  </button>
 											  <div class="dropdown-menu">
-											    <a class="dropdown-item text-center" href="conseileco">Conseils economique</a>
-											    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridique</a>
+											    <a class="dropdown-item text-center" href="conseileco">Conseils economiques</a>
+											    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridiques</a>
 											  </div>
 											</div></center>
 										</li>
@@ -781,7 +782,6 @@
 							#news-bar {
 							  width: 100%;
 							  background:white;
-							 box-shadow: 0 4px 8px , 0 0 8px  inset;
 							  border-radius: 15px;
 							  font: 21px bold;
 							  padding:4px;
@@ -793,7 +793,7 @@
 							  transition: 0.37s;
 							}
 
-							#news-bar a {	
+							#news-bar a {
 							  padding:8px 2px;
 							  color: black;
 							  text-decoration: none;
@@ -932,7 +932,7 @@
 
 							<center><marquee direction="left" scrollamount="3" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()">
 						{% for p in prog %}
-							<a href="#" class="hvr-pop">{{ p.date|date:'d-m : '}}ا{{p.titre}}</a>
+							<a href="#" class="hvr-pop"><b>{{ p.date|date:'d-m : '}}</b>{{p.titre}}</a>
 
 							{% endfor %}
 
@@ -945,11 +945,13 @@
 
 					<div class="section-hero ">
 						<div class="item  hero-col  " >
-      						<video  autoplay  muted playsinline loop="true" class="video-bg hero-video ">
-           		 				<source src="{% static 'odcoapp/media/cop.mp4' %}" type="video/webm" alt="HTML5 background video">
+      						<video  onloadedmetadata="this.muted = true" playsinline autoplay muted loop="true" class="video-bg hero-video ">
+           		 				<source src="{% static 'odcoapp/media/aa.mp4' %}" type="video/webm" alt="HTML5 background video">
           					</video>
-
-       		 				<div class="welcome-text">Bienvenue dans le site officielle de l'<b>ODECO</b></div>
+                            <script>
+                                document.getElementById('vid').play();
+                            </script>
+       		 				<div class="welcome-text">Bienvenue dans le site officiel de l'<b>ODECO</b></div>
 
 						</div>
 						<div class="item hero-welcome ">
@@ -958,7 +960,7 @@
 							<br>
 							<center><div class="card" style="width: auto;">
 							  <div class="card-header " style="font-family: georgia; font-size: 20pt; background-color: #b97129;">
-							    ACCTUALITE
+							    ACTUALITE
 							  </div>
 								<div class="list-group">
 
@@ -1021,7 +1023,7 @@
 
 				<article class="bg-light">
 					<div class="item-wrapper ">
-						<a href="assistance"><div class="item"><i class="fas fa-plus"></i>Assistance</div></a>
+						<a href="assistance"><div class="item"><i class="fas fa-plus"></i>Création </div></a>
 						<a href="acctualite"><div class="item"><i class="fas fa-newspaper"></i>Actualité</div></a>
 						<a href="conseiljuri"><div class="item"><i class="fas fa-balance-scale"></i>Loi Marocaine</div></a>
 						<a href="faq"><div class="item"><i class="fas fa-hands-helping"></i> FAQ</div></a>
@@ -1119,7 +1121,7 @@
 						                  <div class="row " >
 						                    <div class="col-lg-4 mb-4">
 						                      <ul class="list-unstyled">
-						                        <li class="nav-item"><a href="acctuspe/?secteur=Generale" class="nav-link text-small pb-0">Generale</a></li>
+						                        <li class="nav-item"><a href="acctuspe/?secteur=General" class="nav-link text-small pb-0">General</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Pêche" class="nav-link text-small pb-0">Pêche</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Consommation" class="nav-link text-small pb-0 ">Consommation</a></li>
 						                        <li class="nav-item"><a href="acctuspe/?secteur=Transport" class="nav-link text-small pb-0 ">Transport</a></li>
@@ -1198,6 +1200,7 @@
 								<path href="google.com" id="MA-12" title="Dakhla-Oued Ed-Dahab"  d="M82.239,643.817L83.664,647.141L88.195,646.148L90.461,647.636L91.821,651.847L94.54,653.828L99.299,650.608L101.792,652.343L107.683,650.361L110.855,648.132L131.703,653.58L139.181,648.132L148.245,649.37L157.083,648.628L172.038,653.58L180.649,650.608L185.861,649.866L192.823,651.653L192.947,694.781L188.127,695.494L179.29,700.158L170.452,701.631L154.363,712.659L149.851,721.183L149.302,724.558L154.787,781.783L108.279,781.313L45.258,781.36L4.778,781.954L2.363,790.975L0,792L1.45,780.603L3.164,772.464L3.164,765.989L9.831,747.878L14.613,742.422L16.337,743.514L21.724,741.25L24.274,733.101L26.866,730.834L27.48,724.838L29.596,717.841L32.411,716.881L35.183,712.128L33.659,709.772L44.135,690.236L50.22,681.435L51.616,676.673L49.572,674.312L56.082,670.386L56.822,668.299L66.282,659.371L72.303,651.907L77.827,649.42L79.212,645.937z"/>
 							</g>
 						</svg>
+						<br><br><br>
 					</div>
 				</div>
 			</div>

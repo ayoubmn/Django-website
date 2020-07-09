@@ -90,6 +90,10 @@
 				width: 180% !important;
 				min-height: 50px !important;
 			}
+    		.F-C-wrapper{
+    			flex-wrap: wrap;
+
+    		}
 }
 
 		html {
@@ -174,6 +178,9 @@
 				font-size: 1rem !important;
 				width: 200% !important;
 				min-height: 50px !important;
+				min-width: 130px !important;
+
+
 			}
 
 }
@@ -235,7 +242,7 @@
 		.F-C-wrapper{
 			display: flex;
 			flex-direction: row;
-			flex-wrap: wrap;
+			flex-wrap: no-wrap;
 
 		}
 		.flex-field{
@@ -379,8 +386,8 @@
                                     Conseil
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item text-center" href="conseileco">Conseils economique</a>
-                                    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridique</a>
+                                    <a class="dropdown-item text-center" href="conseileco">Conseils economiques</a>
+                                    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridiques</a>
                                 </div>
                             </div>
                         </center>
@@ -462,8 +469,8 @@
                     <center><ul class="nav  flex-column">
                         <li class="">
                             <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
-                               data-target="#Generale">
-                                <div class="menu">Generale</div>
+                               data-target="#General">
+                                <div class="menu">General</div>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -608,8 +615,8 @@
         <div class="col pt-2">
 
             {% for s in sect %}
-            {% if s.namefr == "Generale" %}
-            <div id="Generale">
+            {% if s.namefr == "General" %}
+            <div id="General">
                 {% else %}
                 <div id="{{s.namefr}}" style="display: none;">
                     {% endif %}
@@ -691,7 +698,7 @@
                                                 {% endif %}
 
                                                 </div>
-                                                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                                                {% if forloop.counter|divisibleby:2 and forloop.counter > 0 and not forloop.last %}
                                             </div></center>
                                         </div>
                                         <div class="carousel-item">
@@ -802,13 +809,14 @@
                                                         <div class="col-md-3 clearfix  ">
                                                 {% if s.namefr in i.secteur.namefr %}
 
-                                                            <div class="card mb-2"><a href="images/{{i.url}}">
-
-                                                                <div class="card-body">
-                                                                    <h4 class="card-title">{{i.name|truncatechars:80}}</h4>
-                                                                </div>
-                                                            </a>
+                                                        <a href="/images/{{i.url}}">
+                                                            <center><img class="card-img-top" style=" width:auto; height:100px;"
+                                                                 src="{% static 'odcoapp/media/document.png' %}"
+                                                                         alt="images/{{i.media}}"></center>
+                                                            <div class="card-body">
+                                                                <h4 class="card-title text-center">{{i.name|truncatechars:80}}</h4>
                                                             </div>
+                                                        </a>
                                                  {% endif %}
                                                         </div>
                                                         {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
@@ -852,10 +860,12 @@
                                                         <div class="col-md-3 clearfix  ">
                                                 {% if s.namefr in i.secteur.namefr %}
 
-                                                            <a href="images/{{i.url}}">
-
+                                                        <a href="/images/{{i.url}}">
+                                                            <center><img class="card-img-top" style=" width:auto; height:100px;"
+                                                                 src="{% static 'odcoapp/media/document.png' %}"
+                                                                         alt="images/{{i.media}}"></center>
                                                             <div class="card-body">
-                                                                <h4 class="card-title">{{i.name|truncatechars:80}}</h4>
+                                                                <h4 class="card-title text-center">{{i.name|truncatechars:80}}</h4>
                                                             </div>
                                                         </a>
                                                 {% endif %}

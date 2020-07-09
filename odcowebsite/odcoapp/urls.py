@@ -43,7 +43,7 @@ urlpatterns = [
     path(r'acctuspe/', AcctuSpe, name="AcctuSpe"),
     path(r'acctuspear/', AcctuSpeAR, name="AcctuSpeAR"),
     path(r'acctuspe/lactu', Lactu, name="Lactu"),
-    path(r'acctuspear/lactuAR', LactuAR, name="LactuAR"),
+    path(r'acctuspear/lactuar', LactuAR, name="LactuAR"),
     path(r'search/', Search, name="Search"),
 
 

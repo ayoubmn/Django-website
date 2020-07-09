@@ -283,7 +283,7 @@
 			font-family: Segoe UI ;
 			position: absolute;
 			top:30%;
-			left:25%;
+			left:22%;
 			font-weight: bold;
 
 		}
@@ -325,7 +325,7 @@
 		.welcome-text{
 		font-size: 1.5rem !important;
 		top: 15% !important;
-		left: 10% !important;
+		left: 13% !important;
 		}
 			.youtube{
 				width: 430;
@@ -333,6 +333,13 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
+
+		.youtube{
+			width: 330;
+			height: 250;
+			margin-left: auto;
+			margin-right: auto;
+		}
 }
 
     </style>
@@ -391,8 +398,8 @@
                                     Conseil
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item text-center" href="conseileco">Conseils economique</a>
-                                    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridique</a>
+                                    <a class="dropdown-item text-center" href="conseileco">Conseils economiques</a>
+                                    <a class="dropdown-item text-center" href="conseiljuri">Conseils juridiques</a>
                                 </div>
                             </div>
                         </center>
@@ -459,7 +466,7 @@
 <div class="flex-image">
     <div class="item" style="flex-basis: 100%;">
         <img class="first-image" src="{% static 'odcoapp/media/just.jpg' %}" style="width: 100%">
-        <p class="welcome-text">CONSEILS JURIDIQUE</p>
+        <p class="welcome-text">CONSEILS JURIDIQUES</p>
     </div>
 </div>
 
@@ -477,15 +484,17 @@
     </div>
 
     <div class="item video-col">
-        <div style="margin-left: 5%; margin-top: 1%;">
+        <div style="margin-top: 1%; margin-left: auto; margin-right:auto; ">
             {% for v in video %}
             <div>
-                <h2>{{v.name}}</h2>
-                <iframe class="youtube" width="922" height="462" src="{{v.url}}" frameborder="0"
+                <br>
+                <h2 class="text-center">{{v.name}}</h2>
+                <iframe class="youtube" width="722" height="362" src="{{v.url}}" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
             {% endfor %}
+
         </div>
 
     </div>

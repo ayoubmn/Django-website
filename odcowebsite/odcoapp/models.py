@@ -36,7 +36,8 @@ class Acctualite(models.Model):
 
     def __str__(self):
         return str(self.titre)
-
+    class Meta:
+        verbose_name = 'Actualite'
 
 class Video(models.Model):
     name = models.CharField(max_length=100)

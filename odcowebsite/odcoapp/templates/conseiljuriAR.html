@@ -283,7 +283,7 @@
 			font-family: Segoe UI ;
 			position: absolute;
 			top:30%;
-			left:25%;
+			left:32%;
 			font-weight: bold;
 
 		}
@@ -325,14 +325,14 @@
 		.welcome-text{
 		font-size: 1.5rem !important;
 		top: 15% !important;
-		left: 10% !important;
+		left: 25% !important;
 		}
-			.youtube{
-				width: 430;
-				height: 290;
-				margin-left: auto;
-				margin-right: auto;
-			}
+		.youtube{
+			width: 330;
+			height: 250;
+			margin-left: auto;
+			margin-right: auto;
+		}
 }
 
     </style>
@@ -359,20 +359,20 @@
 				                            </div>
 				                        </li>
 										<li class="nav-item"><a href="/contactar" class="nav-link text-uppercase font-weight-bold text-right">اتصل بنا</a></li>
-										<li class="nav-item"><a href="/assistancear" class="nav-link text-uppercase font-weight-bold text-right">إرشادات</a></li>
+										<li class="nav-item"><a href="/assistancear" class="nav-link text-uppercase font-weight-bold text-right">تأسيس تعاونية</a></li>
 										<li class="nav-item dropdown">
 											  <a class=" dropdown-toggle nav-link text-uppercase font-weight-bold text-right" type="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 											    مساعدة
 											  </a>
 											  <div class="dropdown-menu dropdown-menu-right">
-											    <a class="dropdown-item text-right" href="/conseilecoar">مساعدة إقتصادية</a>
+											    <a class="dropdown-item text-right" href="/conseilecoar">مساعدة في الإدارة والتسيير</a>
 											    <a class="dropdown-item text-right" href="/conseiljuriar">مساعدة قانونية</a>
 											  </div>
 										</li>
 										<li class="nav-item"
 										><a href="/acctualitear" class="nav-link text-uppercase font-weight-bold text-right">مستجدات</a></li>
 										<li class="nav-item active"><a href="/ar" class="nav-link text-uppercase font-weight-bold text-right">الرئيسية <span class="sr-only">(current)</span></a></li>
-									    <li class="nav-item" style="margin-left: 20%;">
+									    <li class="nav-item" style="margin-left: 10%;">
 									      <center><form class="form-inline" style="  margin-top:5px;" method="get" action="{% url 'Search' %}">
 
 											  <center><input id="objet" name="objet" class="form-control item" type="text" placeholder="بحث"></center>
@@ -441,15 +441,17 @@
     </div>
 
     <div class="item video-col">
-        <div style="margin-left: 5%; margin-top: 1%;">
+        <div style="margin-top: 1%; margin-left: auto; margin-right:auto; ">
             {% for v in video %}
             <div>
-                <h2>{{v.name}}</h2>
-                <iframe class="youtube" width="922" height="462" src="{{v.url}}" frameborder="0"
+                <br>
+                <h2 class="text-right">{{v.name}}</h2>
+                <iframe class="youtube" width="722" height="362" src="{{v.url}}" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
             {% endfor %}
+
         </div>
 
     </div>

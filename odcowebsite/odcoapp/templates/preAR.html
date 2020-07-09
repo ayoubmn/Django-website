@@ -95,8 +95,12 @@
 
 				width: 180% !important;
 				min-height: 50px !important;
-				margin-left: 30% !important;
 			}
+    		.F-C-wrapper{
+    			flex-wrap: wrap;
+
+    		}
+
 }
 
 		html {
@@ -181,6 +185,8 @@
 				font-size: 1rem !important;
 				width: 200% !important;
 				min-height: 50px !important;
+				min-width: 130px !important;
+
 			}
 
 }
@@ -242,7 +248,7 @@
 		.F-C-wrapper{
 			display: flex;
 			flex-direction: row-reverse;
-			flex-wrap: wrap;
+			flex-wrap: no-wrap;
 
 		}
 		.flex-field{
@@ -290,6 +296,10 @@
 		}
 		#logo{
 			width:80%;
+		}
+		#menu{
+			width:100%;
+		}
 
 		.sticky-btn {
 			margin-bottom:30px;
@@ -348,20 +358,20 @@
 				                            </div>
 				                        </li>
 										<li class="nav-item"><a href="/contactar" class="nav-link text-uppercase font-weight-bold text-right">اتصل بنا</a></li>
-										<li class="nav-item"><a href="/assistancear" class="nav-link text-uppercase font-weight-bold text-right">إرشادات</a></li>
+										<li class="nav-item"><a href="/assistancear" class="nav-link text-uppercase font-weight-bold text-right">تأسيس تعاونية</a></li>
 										<li class="nav-item dropdown">
 											  <a class=" dropdown-toggle nav-link text-uppercase font-weight-bold text-right" type="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 											    مساعدة
 											  </a>
 											  <div class="dropdown-menu dropdown-menu-right">
-											    <a class="dropdown-item text-right" href="/conseilecoar">مساعدة إقتصادية</a>
+											    <a class="dropdown-item text-right" href="/conseilecoar">مساعدة في الإدارة والتسيير</a>
 											    <a class="dropdown-item text-right" href="/conseiljuriar">مساعدة قانونية</a>
 											  </div>
 										</li>
 										<li class="nav-item"
 										><a href="/acctualitear" class="nav-link text-uppercase font-weight-bold text-right">مستجدات</a></li>
 										<li class="nav-item active"><a href="/ar" class="nav-link text-uppercase font-weight-bold text-right">الرئيسية <span class="sr-only">(current)</span></a></li>
-									    <li class="nav-item" style="margin-left: 20%;">
+									    <li class="nav-item" style="margin-left: 10%;">
 									      <center><form class="form-inline" style="  margin-top:5px;" method="get" action="{% url 'Search' %}">
 
 											  <center><input id="objet" name="objet" class="form-control item" type="text" placeholder="بحث"></center>
@@ -421,11 +431,11 @@
     <div class="item bg-light flex-field">
         <div class="container ">
             <div class="row ">
-                <div class="col-2 collapse d-flex bg-faded " style="margin-left:10%; margin-right:0%;" id="sidebar">
+                <div class="col-2 collapse d-flex bg-faded "  id="sidebar">
                     <center><ul class="nav  flex-column">
                         <li class="">
                             <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse"
-                               data-target="#Generale">
+                               data-target="#General">
                                 <div class="menu">عام</div>
                             </a>
                         </li>
@@ -571,8 +581,8 @@
         <div class="col pt-2">
 
             {% for s in sect %}
-            {% if s.namefr == "Generale" %}
-            <div id="Generale">
+            {% if s.namefr == "General" %}
+            <div id="General">
                 {% else %}
                 <div id="{{s.namefr}}" style="display: none;">
                     {% endif %}
@@ -582,7 +592,7 @@
                         <hr style="width: 80%;"/>
                     </center>
                     <div id="accordion{{s.namefr}}">
-                        {% for p in post %}
+                        {% for p in pre %}
 
                         {% if s.namefr in p.secteur.namefr %}
                         <div class="card">
@@ -654,7 +664,7 @@
                                                 {% endif %}
 
                                                 </div>
-                                                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                                                {% if forloop.counter|divisibleby:2 and forloop.counter > 0 and not forloop.last %}
                                             </div></center>
                                         </div>
                                         <div class="carousel-item item">
@@ -765,13 +775,14 @@
                                                         <div class="col-md-3 clearfix item ">
                                                 {% if s.namefr in i.secteur.namefr %}
 
-                                                            <div class="card mb-2"><a href="images/{{i.url}}">
-
-                                                                <div class="card-body">
-                                                                    <h4 class="card-title">{{i.name|truncatechars:80}}</h4>
-                                                                </div>
-                                                            </a>
+                                                        <a href="/images/{{i.url}}">
+                                                            <center><img class="card-img-top" style=" width:auto; height:100px;"
+                                                                 src="{% static 'odcoapp/media/document.png' %}"
+                                                                         alt="images/{{i.media}}"></center>
+                                                            <div class="card-body">
+                                                                <h4 class="card-title text-center">{{i.name|truncatechars:80}}</h4>
                                                             </div>
+                                                        </a>
                                                  {% endif %}
                                                         </div>
                                                         {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
@@ -815,10 +826,12 @@
                                                         <div class="col-md-3 clearfix item ">
                                                 {% if s.namefr in i.secteur.namefr %}
 
-                                                            <a href="images/{{i.url}}">
-
+                                                        <a href="/images/{{i.url}}">
+                                                            <center><img class="card-img-top" style=" width:auto; height:100px;"
+                                                                 src="{% static 'odcoapp/media/document.png' %}"
+                                                                         alt="images/{{i.media}}"></center>
                                                             <div class="card-body">
-                                                                <h4 class="card-title">{{i.name|truncatechars:80}}</h4>
+                                                                <h4 class="card-title text-center">{{i.name|truncatechars:80}}</h4>
                                                             </div>
                                                         </a>
                                                 {% endif %}
