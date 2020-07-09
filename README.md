@@ -19,12 +19,12 @@ Afin d’avoir un projet plus complet et le rendre utilisable par le grand publi
 ##		Front end
 
 En ce qui concerne le développement web frontal, nous avons utilisé les langages suivants :</br>
-o	HTML5 (HyperText Markup Language) qui est un langage de balisage</br>
-o	CSS3 (Cascading Style Sheets) qui est le langage de style</br>
-o	JS (JavaScript) comme langage de la programmation</br>
+	o	HTML5 (HyperText Markup Language) qui est un langage de balisage</br>
+	o	CSS3 (Cascading Style Sheets) qui est le langage de style</br>
+	o	JS (JavaScript) comme langage de la programmation</br>
 En plus de ces éléments basiques, nous avons utilisé :</br>
-o	Bootstrap4 qui est une collection d'outils utiles à la création du design (graphisme, animation et interactions avec la page dans le navigateur, etc.) de site et d'applications web.</br>
-o	jQuery qui est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web</br>
+	o	Bootstrap4 qui est une collection d'outils utiles à la création du design (graphisme, animation et interactions avec la page dans le navigateur, etc.) de site et 	d'applications web.</br>
+	o	jQuery qui est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web</br>
 
 
 
@@ -41,14 +41,14 @@ Pour le back end, nous avons opté pour le langage python et plus précisément 
 
 ##		Base de données
 
-	Pour la base de données, nous  avons opté pour MYSQL qui est un système de gestion de bases de données relationnelles (SGBDR), pour les possibilités  intéressantes  qu’il offre notamment l’aspect  open source et gratuit, les performances excellentes, le multi-threading  et la gestion  multi-utilisateurs
+Pour la base de données, nous  avons opté pour MYSQL qui est un système de gestion de bases de données relationnelles (SGBDR), pour les possibilités  intéressantes  qu’il offre notamment l’aspect  open source et gratuit, les performances excellentes, le multi-threading  et la gestion  multi-utilisateurs
 
 
 
 
 ##		PWA
 
-	En vue de l’intérêt que présente une application mobile dans ce contexte d’assistance économique et juridique aux coopératives, et afin d’optimiser les développements et els efforts,  nous avons décidé d’utiliser la technique  (PWA, applications web progressives) qui est une application web qui s'implémente dans des pages ou des sites web, pour qu'elles puissent apparaître à l'utilisateur de la même manière que les applications natives ou les applications mobiles. Ce type d'applications tente de combiner les fonctionnalités offertes par la plupart des navigateurs modernes avec les avantages de l'expérience offerte par les appareils mobiles.
+En vue de l’intérêt que présente une application mobile dans ce contexte d’assistance économique et juridique aux coopératives, et afin d’optimiser les développements et els efforts,  nous avons décidé d’utiliser la technique  (PWA, applications web progressives) qui est une application web qui s'implémente dans des pages ou des sites web, pour qu'elles puissent apparaître à l'utilisateur de la même manière que les applications natives ou les applications mobiles. Ce type d'applications tente de combiner les fonctionnalités offertes par la plupart des navigateurs modernes avec les avantages de l'expérience offerte par les appareils mobiles.
 
    
 
