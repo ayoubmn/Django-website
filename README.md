@@ -1,4 +1,4 @@
-# ODCO-website
+# Django-website
 ##	Web
 
 Pour répondre aux besoins de l’ODCO, nous avons pu réaliser le site web   ’ODCO-Maroc ‘ dans lequel nous avons réussi à intégrer l’ensemble des fonctionnalités demandées y compris l’interface d’administration et d’alimentation du contenu  du site (ajout et suppression du contenu du site via la modification de la base de données destiné au personnel responsable de l’administration du site  de l’ODCO).
